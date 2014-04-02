@@ -1,3 +1,6 @@
+//Pedro Morgado Alarcón
+//Samuel Méndez Galán
+
 #include <Windows.h>
 #include <gl/GL.h>
 #include <gl/GLU.h>
@@ -7,6 +10,8 @@
 
 #include <iostream>
 using namespace std;
+
+#include "Coche.h"
 
 // Freeglut parameters
 // Flag telling us to keep processing events
@@ -22,6 +27,12 @@ GLdouble xRight=10, xLeft=-xRight, yTop=10, yBot=-yTop, N=1, F=1000;
 GLdouble eyeX=100.0, eyeY=100.0, eyeZ=100.0;
 GLdouble lookX=0.0, lookY=0.0, lookZ=0.0;
 GLdouble upX=0, upY=1, upZ=0;
+
+//Our parameters
+Coche coche;
+GLdouble angleX = 0.0;
+GLdouble angleY = 0.0;
+GLdouble angleZ = 0.0;
 
 void initGL() {	 		 
 	glClearColor(0.6f,0.7f,0.8f,1.0);
@@ -60,7 +71,7 @@ void initGL() {
 
 void display(void) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  
-
+	
 	// Drawing axes
 	glBegin( GL_LINES );
 		glColor3f(1.0,0.0,0.0); 
@@ -73,14 +84,24 @@ void display(void) {
 	 
 		glColor3f(0.0,0.0,1.0); 
 		glVertex3f(0, 0, 0);
-		glVertex3f(0, 0, 20);	     
+		glVertex3f(0, 0, 20);
+
+		glColor3f(1.0, 0.0, 0.0);
 	glEnd();
 
 	//Our code
+	glPushMatrix();
+	glMatrixMode(GL_MODELVIEW);
 
-	glColor3f(1.0, 1.0, 1.0);
-	glutSolidSphere(3, 30, 30);
+	glRotated(angleX, 1,0,0);
+	glRotated(angleY, 0,1,0);
+	glRotated(angleZ, 0,0,1);
 
+	glColor3f(1.0, 0.0, 0.0);
+	//coche.drawCoche(4);
+	glutSolidCube(4);
+
+	glPopMatrix();
 	glFlush();
 	glutSwapBuffers();
 }
@@ -120,7 +141,29 @@ void key(unsigned char key, int x, int y){
 			//continue_in_main_loop = false; // (**)
 			//Freeglut's sentence for stopping glut's main loop (*)
 			glutLeaveMainLoop (); 
-			break;		 			 
+			break;	
+
+		case 'a': //Eje X
+			angleX += 1.0;
+			break;
+		case 'z': //Eje X
+			angleX -= 1.0;
+			break;
+
+		case 's': //Eje Y
+			angleY += 1.0;
+			break;
+		case 'x': //Eje Y
+			angleY -= 1.0;
+			break;
+
+		case 'd': //Eje Z
+			angleZ += 1.0;
+			break;
+		case 'c': //Eje Z
+			angleZ -= 1.0;
+			break;
+
 		default:
 			need_redisplay = false;
 			break;

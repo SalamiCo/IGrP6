@@ -41,7 +41,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)freeglut\include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)freeglut project 3D\sources;$(SolutionDir)freeglut\include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -65,6 +65,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="sources\Camara.cpp" />
+    <ClCompile Include="sources\Coche.cpp" />
+    <ClCompile Include="sources\PV3D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sources\Camara.h" />
+    <ClInclude Include="sources\Coche.h" />
+    <ClInclude Include="sources\PV3D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
