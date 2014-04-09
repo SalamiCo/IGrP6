@@ -12,6 +12,8 @@
 using namespace std;
 
 #include "Coche.h"
+#include "Camara.h"
+#include "PV3D.h"
 
 // Freeglut parameters
 // Flag telling us to keep processing events
@@ -33,6 +35,10 @@ Coche coche;
 GLdouble angleX = 0.0;
 GLdouble angleY = 0.0;
 GLdouble angleZ = 0.0;
+Camara camera;
+GLdouble recorridoX = 0.0;
+GLdouble recorridoY = 0.0;
+GLdouble recorridoZ = 0.0;
 
 void initGL() {	 		 
 	glClearColor(0.6f,0.7f,0.8f,1.0);
@@ -47,14 +53,7 @@ void initGL() {
 	// buildSceneObjects();
 
 	// Camera set up
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	gluLookAt(eyeX, eyeY, eyeZ, lookX, lookY, lookZ, upX, upY, upZ);
-
-	// Frustum set up
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();     
-	glOrtho(xLeft, xRight, yBot, yTop, N, F);
+	camera = Camara(PV3D(eyeX, eyeY, eyeZ, 1), PV3D(lookX, lookY, lookZ, 1), PV3D(upX, upY, upZ, 0));
 
 	// Viewport set up
     glViewport(0, 0, WIDTH, HEIGHT);  
@@ -90,6 +89,7 @@ void display(void) {
 	glEnd();
 
 	//Our code
+
 	glPushMatrix();
 	glMatrixMode(GL_MODELVIEW);
 
@@ -97,11 +97,15 @@ void display(void) {
 	glRotated(angleY, 0,1,0);
 	glRotated(angleZ, 0,0,1);
 
+
 	glColor3f(1.0, 0.0, 0.0);
 	//coche.drawCoche(4);
 	glutSolidCube(4);
 
 	glPopMatrix();
+
+	camera.recorridoEje(recorridoX, recorridoY, recorridoZ);
+	
 	glFlush();
 	glutSwapBuffers();
 }
@@ -143,7 +147,7 @@ void key(unsigned char key, int x, int y){
 			glutLeaveMainLoop (); 
 			break;	
 
-		case 'a': //Eje X
+		/*case 'a': //Eje X
 			angleX += 1.0;
 			break;
 		case 'z': //Eje X
@@ -162,6 +166,10 @@ void key(unsigned char key, int x, int y){
 			break;
 		case 'c': //Eje Z
 			angleZ -= 1.0;
+			break;*/
+
+		case 'e':
+			recorridoX += 50.0;
 			break;
 
 		default:

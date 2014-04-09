@@ -17,7 +17,8 @@ class Camara{
 		GLdouble left, right, top, bottom;
 		GLdouble nearC, farC, fovy, aspect;
 	public:
-		Camara(void);
+		Camara(void){};
+		Camara(PV3D eye, PV3D look, PV3D up);
 		~Camara(void){};
 
 		void roll(GLdouble rad);
