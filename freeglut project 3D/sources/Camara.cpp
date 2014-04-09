@@ -6,3 +6,7 @@
 Camara::Camara(void){
 
 }
+
+void Camara::recorridoEje(GLdouble x, GLdouble y, GLdouble z){
+
+}
