@@ -39,6 +39,7 @@ Camara camera;
 GLdouble recorridoX = 0.0;
 GLdouble recorridoY = 0.0;
 GLdouble recorridoZ = 0.0;
+GLdouble desplazaY = 0.0;
 
 GLdouble angleGiraX = 0.0;
 GLdouble angleGiraY = 0.0;
@@ -107,8 +108,6 @@ void display(void) {
 	glutSolidCube(4);
 
 	glPopMatrix();
-
-	camera.recorridoEje(recorridoX, recorridoY, recorridoZ);
 	
 	glFlush();
 	glutSwapBuffers();
@@ -176,33 +175,48 @@ void key(unsigned char key, int x, int y){
 			recorridoX = 10.0;
 			recorridoY = 0.0;
 			recorridoZ = 0.0;
+			camera.recorridoEje(recorridoX, recorridoY, recorridoZ);
 			break;
 		case 'r':
 			recorridoX = -10.0;
 			recorridoY = 0.0;
 			recorridoZ = 0.0;
+			camera.recorridoEje(recorridoX, recorridoY, recorridoZ);
 			break;
 
 		case 'd': //Along axis Y
 			recorridoY = 10.0;
 			recorridoX = 0.0;
 			recorridoZ = 0.0;
+			camera.recorridoEje(recorridoX, recorridoY, recorridoZ);
 			break;
 		case 'f':
 			recorridoY = -10.0;
 			recorridoX = 0.0;
 			recorridoZ = 0.0;
+			camera.recorridoEje(recorridoX, recorridoY, recorridoZ);
 			break;
 
 		case 'c': //Along axis Z
 			recorridoZ = 10.0;
 			recorridoX = 0.0;
 			recorridoY = 0.0;
+			camera.recorridoEje(recorridoX, recorridoY, recorridoZ);
 			break;
 		case 'v':
 			recorridoZ = -10.0;
 			recorridoX = 0.0;
 			recorridoY = 0.0;
+			camera.recorridoEje(recorridoX, recorridoY, recorridoZ);
+			break;
+
+		case 's': //Desplazar
+			desplazaY = 2.0; 
+			camera.desplazar(0.0, desplazaY, 0.0);
+			break;
+		case 'x':
+			desplazaY = -2.0;
+			camera.desplazar(0.0, desplazaY, 0.0);
 			break;
 
 		case '1':
