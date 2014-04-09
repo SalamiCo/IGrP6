@@ -38,3 +38,42 @@ void Camara::recorridoEje(GLdouble x, GLdouble y, GLdouble z){
     glLoadIdentity();     
 	glOrtho(left, right, bottom, top, nearC, farC);
 }
+
+void Camara::giraX(GLdouble angle){
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	eye.setY(100 * cos(angle));
+	eye.setZ(100 * sin(angle));
+	gluLookAt(eye.getX(), eye.getY(), eye.getZ(), look.getX(), look.getY(), look.getZ(), up.getX(), up.getY(), up.getZ());
+
+	glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();     
+	glOrtho(left, right, bottom, top, nearC, farC);
+}
+
+void Camara::giraY(GLdouble angle){
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	eye.setX(100 * cos(angle));
+	eye.setZ(100 * sin(angle));
+	gluLookAt(eye.getX(), eye.getY(), eye.getZ(), look.getX(), look.getY(), look.getZ(), up.getX(), up.getY(), up.getZ());
+
+	glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();     
+	glOrtho(left, right, bottom, top, nearC, farC);
+}
+
+void Camara::giraZ(GLdouble angle){
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	eye.setX(100 * cos(angle));
+	eye.setY(100 * sin(angle));
+	gluLookAt(eye.getX(), eye.getY(), eye.getZ(), look.getX(), look.getY(), look.getZ(), up.getX(), up.getY(), up.getZ());
+
+	glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();     
+	glOrtho(left, right, bottom, top, nearC, farC);
+}

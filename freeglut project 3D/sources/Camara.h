@@ -9,6 +9,9 @@
 #include <GL/freeglut.h>
 #include <GL/glut.h>
 
+#define _USE_MATH_DEFINES
+#include <cmath>
+
 #include "PV3D.h"
 
 class Camara{
@@ -16,6 +19,7 @@ class Camara{
 		PV3D eye, look, up, u, v, n;
 		GLdouble left, right, top, bottom;
 		GLdouble nearC, farC, fovy, aspect;
+		
 	public:
 		Camara(void){};
 		Camara(PV3D eye, PV3D look, PV3D up);
@@ -25,6 +29,9 @@ class Camara{
 		void yaw(GLdouble rad);
 		void pitch(GLdouble rad);
 		void recorridoEje(GLdouble x, GLdouble y, GLdouble z);
+		void giraX(GLdouble angle);
+		void giraY(GLdouble angle);
+		void giraZ(GLdouble angle);
 
 		void desplazar(GLdouble x, GLdouble y, GLdouble z);
 };

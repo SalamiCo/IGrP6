@@ -40,6 +40,10 @@ GLdouble recorridoX = 0.0;
 GLdouble recorridoY = 0.0;
 GLdouble recorridoZ = 0.0;
 
+GLdouble angleGiraX = 0.0;
+GLdouble angleGiraY = 0.0;
+GLdouble angleGiraZ = 0.0;
+
 void initGL() {	 		 
 	glClearColor(0.6f,0.7f,0.8f,1.0);
     glEnable(GL_LIGHTING);    
@@ -199,6 +203,21 @@ void key(unsigned char key, int x, int y){
 			recorridoZ = -10.0;
 			recorridoX = 0.0;
 			recorridoY = 0.0;
+			break;
+
+		case '1':
+			angleGiraX += 0.1;
+			camera.giraX(angleGiraX);
+			break;
+
+		case '2':
+			angleGiraY += 0.1;
+			camera.giraY(angleGiraY);
+			break;
+
+		case '3':
+			angleGiraZ += 0.1;
+			camera.giraZ(angleGiraZ);
 			break;
 
 		default:
