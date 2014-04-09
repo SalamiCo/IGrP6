@@ -29,10 +29,12 @@ void Camara::recorridoEje(GLdouble x, GLdouble y, GLdouble z){
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
+	eye.setX(eye.getX() + x);
+	eye.setY(eye.getY() + y);
+	eye.setZ(eye.getZ() + z);
 	gluLookAt(eye.getX(), eye.getY(), eye.getZ(), look.getX(), look.getY(), look.getZ(), up.getX(), up.getY(), up.getZ());
 
 	glMatrixMode(GL_PROJECTION);
     glLoadIdentity();     
 	glOrtho(left, right, bottom, top, nearC, farC);
-
 }

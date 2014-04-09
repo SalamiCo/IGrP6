@@ -168,8 +168,37 @@ void key(unsigned char key, int x, int y){
 			angleZ -= 1.0;
 			break;*/
 
-		case 'e':
-			recorridoX += 50.0;
+		case 'e': //Along axis X
+			recorridoX = 10.0;
+			recorridoY = 0.0;
+			recorridoZ = 0.0;
+			break;
+		case 'r':
+			recorridoX = -10.0;
+			recorridoY = 0.0;
+			recorridoZ = 0.0;
+			break;
+
+		case 'd': //Along axis Y
+			recorridoY = 10.0;
+			recorridoX = 0.0;
+			recorridoZ = 0.0;
+			break;
+		case 'f':
+			recorridoY = -10.0;
+			recorridoX = 0.0;
+			recorridoZ = 0.0;
+			break;
+
+		case 'c': //Along axis Z
+			recorridoZ = 10.0;
+			recorridoX = 0.0;
+			recorridoY = 0.0;
+			break;
+		case 'v':
+			recorridoZ = -10.0;
+			recorridoX = 0.0;
+			recorridoY = 0.0;
 			break;
 
 		default:
