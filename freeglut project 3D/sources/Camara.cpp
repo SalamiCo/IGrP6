@@ -88,3 +88,47 @@ void Camara::desplazar(GLdouble x, GLdouble y, GLdouble z){
     glLoadIdentity();     
 	glOrtho(left, right, bottom, top, nearC, farC);
 }
+
+void Camara::lateral(){
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	gluLookAt(100.0, 0.0, 0.0, look.getX(), look.getY(), look.getZ(), up.getX(), up.getY(), up.getZ());
+
+	glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();     
+	glOrtho(left, right, bottom, top, nearC, farC);
+}
+
+void Camara::frontal(){
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	gluLookAt(0.0, 0.0, 100.0, look.getX(), look.getY(), look.getZ(), up.getX(), up.getY(), up.getZ());
+
+	glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();     
+	glOrtho(left, right, bottom, top, nearC, farC);
+}
+
+void Camara::cenital(){
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	gluLookAt(0.0, 100.0, 0.0, look.getX(), look.getY(), look.getZ(), 1.0, 0.0, 0.0);
+
+	glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();     
+	glOrtho(left, right, bottom, top, nearC, farC);
+}
+
+void Camara::esquina(){
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	gluLookAt(100.0, 100.0, 100.0, look.getX(), look.getY(), look.getZ(), up.getX(), up.getY(), up.getZ());
+
+	glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();     
+	glOrtho(left, right, bottom, top, nearC, farC);
+}

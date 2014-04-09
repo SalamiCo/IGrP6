@@ -219,19 +219,35 @@ void key(unsigned char key, int x, int y){
 			camera.desplazar(0.0, desplazaY, 0.0);
 			break;
 
-		case '1':
+		case '1': //Gira X
 			angleGiraX += 0.1;
 			camera.giraX(angleGiraX);
 			break;
 
-		case '2':
+		case '2': //Gira Y
 			angleGiraY += 0.1;
 			camera.giraY(angleGiraY);
 			break;
 
-		case '3':
+		case '3': //Gira Z
 			angleGiraZ += 0.1;
 			camera.giraZ(angleGiraZ);
+			break;
+
+		case '4': //Lateral
+			camera.lateral();
+			break;
+
+		case '5': //Frontal
+			camera.frontal();
+			break;
+
+		case '6': //Cenital
+			camera.cenital();
+			break;
+
+		case '7': //Esquina
+			camera.esquina();
 			break;
 
 		default:

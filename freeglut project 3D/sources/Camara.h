@@ -32,6 +32,10 @@ class Camara{
 		void giraX(GLdouble angle);
 		void giraY(GLdouble angle);
 		void giraZ(GLdouble angle);
+		void lateral();
+		void frontal();
+		void cenital();
+		void esquina();
 
 		void desplazar(GLdouble x, GLdouble y, GLdouble z);
 };
