@@ -38,3 +38,19 @@ void Camara::recorridoEje(GLdouble x, GLdouble y, GLdouble z){
     glLoadIdentity();     
 	glOrtho(left, right, bottom, top, nearC, farC);
 }
+
+
+void Camara::desplazar(GLdouble x, GLdouble y, GLdouble z){
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	eye.setX(eye.getX() + x);
+	eye.setY(eye.getY() + y);
+	eye.setZ(eye.getZ() + z);
+	look.setY(look.getY() + y);
+	gluLookAt(eye.getX(), eye.getY(), eye.getZ(), 0.0, look.getY(), 0.0, up.getX(), up.getY(), up.getZ());
+
+	glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();     
+	glOrtho(left, right, bottom, top, nearC, farC);
+}
