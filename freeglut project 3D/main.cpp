@@ -180,6 +180,13 @@ void key(unsigned char key, int x, int y){
 			camera.roll(-0.09);
 			break;
 
+		case 'j': //yaw
+			camera.yaw(0.01);
+			break;
+		case 'k':
+			camera.yaw(-0.01);
+			break;
+
 		case 'e': //Along axis X
 			recorridoX = 10.0;
 			recorridoY = 0.0;

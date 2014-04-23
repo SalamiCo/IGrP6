@@ -32,7 +32,6 @@ Camara::Camara(PV3D eye, PV3D look, PV3D up){
 }
 
 void Camara::roll(GLdouble rad){
-	glMatrixMode(GL_MODELVIEW);
 	/*PV3D* uprima = new PV3D((u->getX()*cos(rad)) + (v->getX()*sin(rad)), 
 							(u->getY()*cos(rad)) + (v->getY()*sin(rad)), 
 							(u->getZ()*cos(rad)) + (v->getZ()*sin(rad)), 
@@ -53,22 +52,53 @@ void Camara::roll(GLdouble rad){
 	v->setY((tprima->getY())*sin(rad) + (v->getY()*cos(rad)));
 	v->setZ((tprima->getZ())*sin(rad) + (v->getZ()*cos(rad)));
 
-	PV3D negativeEye = PV3D(-eye.getX(), -eye.getY(), -eye.getZ(), -eye.getPV());
+	GLfloat m[16] = {u->getX(), v->getX(), n->getX(), 0, 
+						u->getY(), v->getY(), n->getY(), 0,
+						u->getZ(), v->getZ(), n->getZ(), 0, 
+						-(eye.productoEscalar(u)), -(eye.productoEscalar(v)), -(eye.productoEscalar(n)), 1};
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadMatrixf(m);
+}
+
+void Camara::yaw(GLdouble rad){
+	PV3D* tprima = u->clona();
+
+	u->setX((tprima->getX()*cos(rad)) + (n->getX()*sin(rad))); 
+	u->setY((tprima->getY()*cos(rad)) + (n->getY()*sin(rad)));
+	u->setZ((tprima->getZ()*cos(rad)) + (n->getZ()*sin(rad)));
+
+	n->setX(-((tprima->getX())*sin(rad)) + (n->getX()*cos(rad)));
+	n->setY(-((tprima->getY())*sin(rad)) + (n->getY()*cos(rad)));
+	n->setZ(-((tprima->getZ())*sin(rad)) + (n->getZ()*cos(rad)));
 
 	GLfloat m[16] = {u->getX(), v->getX(), n->getX(), 0, 
 						u->getY(), v->getY(), n->getY(), 0,
 						u->getZ(), v->getZ(), n->getZ(), 0, 
 						-(eye.productoEscalar(u)), -(eye.productoEscalar(v)), -(eye.productoEscalar(n)), 1};
 
+	glMatrixMode(GL_MODELVIEW);
 	glLoadMatrixf(m);
 }
 
-void Camara::yaw(GLdouble rad){
-
-}
-
 void Camara::pitch(GLdouble rad){
+	PV3D* tprima = u->clona();
 
+	u->setX((tprima->getX()*cos(rad)) - (v->getX()*sin(rad))); 
+	u->setY((tprima->getY()*cos(rad)) - (v->getY()*sin(rad)));
+	u->setZ((tprima->getZ()*cos(rad)) - (v->getZ()*sin(rad)));
+
+	v->setX((tprima->getX())*sin(rad) + (v->getX()*cos(rad)));
+	v->setY((tprima->getY())*sin(rad) + (v->getY()*cos(rad)));
+	v->setZ((tprima->getZ())*sin(rad) + (v->getZ()*cos(rad)));
+
+	GLfloat m[16] = {u->getX(), v->getX(), n->getX(), 0, 
+						u->getY(), v->getY(), n->getY(), 0,
+						u->getZ(), v->getZ(), n->getZ(), 0, 
+						-(eye.productoEscalar(u)), -(eye.productoEscalar(v)), -(eye.productoEscalar(n)), 1};
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadMatrixf(m);
 }
 
 void Camara::recorridoEje(GLdouble x, GLdouble y, GLdouble z){
