@@ -8,6 +8,9 @@
 #include <GL/freeglut.h>
 //#include <GL/glut.h>
 
+#define _USE_MATH_DEFINES
+#include <cmath>
+
 #include <iostream>
 using namespace std;
 
@@ -170,6 +173,12 @@ void key(unsigned char key, int x, int y){
 		case 'c': //Eje Z
 			angleZ -= 1.0;
 			break;*/
+		case 'u': //roll
+			camera.roll(0.09); //0.09 radianes = 5 grados
+			break;
+		case 'i':
+			camera.roll(-0.09);
+			break;
 
 		case 'e': //Along axis X
 			recorridoX = 10.0;

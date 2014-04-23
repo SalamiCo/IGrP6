@@ -16,7 +16,8 @@
 
 class Camara{
 	private:
-		PV3D eye, look, up, u, v, n;
+		PV3D eye, look, up; 
+		PV3D *u, *v, *n;
 		GLdouble left, right, top, bottom;
 		GLdouble nearC, farC, fovy, aspect;
 		

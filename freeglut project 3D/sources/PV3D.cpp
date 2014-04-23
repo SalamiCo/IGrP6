@@ -81,3 +81,7 @@ PV3D* PV3D::calculaN(){
 	n = getB()->productoVectorial(getT());
 	return n;
 }
+
+PV3D* PV3D::clona(){
+	return new PV3D(this->getX(), this->getY(), this->getZ(), this->getPV());
+}

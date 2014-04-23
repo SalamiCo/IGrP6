@@ -45,4 +45,6 @@ public:
 	PV3D* calculaT(PV3D* c);
 	PV3D* calculaB(PV3D* c, PV3D* cc);
 	PV3D* calculaN();
+
+	PV3D* clona();
 };
