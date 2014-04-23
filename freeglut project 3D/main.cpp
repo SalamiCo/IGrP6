@@ -48,6 +48,8 @@ GLdouble angleGiraX = 0.0;
 GLdouble angleGiraY = 0.0;
 GLdouble angleGiraZ = 0.0;
 
+PV3D d = PV3D(0.5, 0, 0.8, 0); //Para proyección oblicua
+
 void initGL() {	 		 
 	glClearColor(0.6f,0.7f,0.8f,1.0);
     glEnable(GL_LIGHTING);    
@@ -271,6 +273,37 @@ void key(unsigned char key, int x, int y){
 
 		case '7': //Esquina
 			camera.esquina();
+			break;
+
+		case 'o': //Ortogonal
+			glMatrixMode(GL_PROJECTION);
+			glLoadIdentity();
+			glOrtho(xLeft, xRight, yBot, yTop, N, F);
+			break;
+		case 'p': //Perspectiva
+			glMatrixMode(GL_PROJECTION);
+			glLoadIdentity();
+			gluPerspective(5, 2, N, F);
+			break;
+		case 'l': //Oblicua
+			glMatrixMode(GL_PROJECTION);
+			glLoadIdentity();
+			glOrtho(xLeft, xRight, yBot, yTop, N, F);
+
+			if(d.getZ() != 0.0 && (d.getX() != 0 || d.getY() != 0 || d.getZ() != 1)){
+				GLfloat m[16] = {	
+						1, 0, 0, 0,
+						0, 1, 0, 0,
+						0, 0, 1, 0,
+						0, 0, 0, 1
+					};
+				m[8] = -(d.getX()) / d.getZ();
+				m[9] = -(d.getY()) / d.getZ();
+				m[12] = -N * (d.getX() / d.getZ());
+				m[13] = -N * (d.getY() / d.getZ());
+
+				glMultMatrixf(m);
+			}
 			break;
 
 		default:

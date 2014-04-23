@@ -37,6 +37,7 @@ class Camara{
 		void frontal();
 		void cenital();
 		void esquina();
+		void proyOblicua(PV3D d);
 
 		void desplazar(GLdouble x, GLdouble y, GLdouble z);
 };

@@ -208,3 +208,7 @@ void Camara::esquina(){
     glLoadIdentity();     
 	glOrtho(left, right, bottom, top, nearC, farC);
 }
+
+void Camara::proyOblicua(PV3D d){
+
+}
