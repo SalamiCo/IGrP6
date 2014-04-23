@@ -187,6 +187,13 @@ void key(unsigned char key, int x, int y){
 			camera.yaw(-0.01);
 			break;
 
+		case 'n': //pitch
+			camera.pitch(0.01);
+			break;
+		case 'm':
+			camera.pitch(-0.01);
+			break;
+
 		case 'e': //Along axis X
 			recorridoX = 10.0;
 			recorridoY = 0.0;

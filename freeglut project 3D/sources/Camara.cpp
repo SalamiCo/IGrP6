@@ -82,15 +82,15 @@ void Camara::yaw(GLdouble rad){
 }
 
 void Camara::pitch(GLdouble rad){
-	PV3D* tprima = u->clona();
+	PV3D* tprima = n->clona();
 
-	u->setX((tprima->getX()*cos(rad)) - (v->getX()*sin(rad))); 
-	u->setY((tprima->getY()*cos(rad)) - (v->getY()*sin(rad)));
-	u->setZ((tprima->getZ()*cos(rad)) - (v->getZ()*sin(rad)));
+	n->setX((tprima->getX()*cos(rad)) + (v->getX()*sin(rad))); 
+	n->setY((tprima->getY()*cos(rad)) + (v->getY()*sin(rad)));
+	n->setZ((tprima->getZ()*cos(rad)) + (v->getZ()*sin(rad)));
 
-	v->setX((tprima->getX())*sin(rad) + (v->getX()*cos(rad)));
-	v->setY((tprima->getY())*sin(rad) + (v->getY()*cos(rad)));
-	v->setZ((tprima->getZ())*sin(rad) + (v->getZ()*cos(rad)));
+	v->setX(-((tprima->getX())*sin(rad)) + (v->getX()*cos(rad)));
+	v->setY(-((tprima->getY())*sin(rad)) + (v->getY()*cos(rad)));
+	v->setZ(-((tprima->getZ())*sin(rad)) + (v->getZ()*cos(rad)));
 
 	GLfloat m[16] = {u->getX(), v->getX(), n->getX(), 0, 
 						u->getY(), v->getY(), n->getY(), 0,
