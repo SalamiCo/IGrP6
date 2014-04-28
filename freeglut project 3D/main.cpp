@@ -29,7 +29,7 @@ int WIDTH= 500, HEIGHT= 500;
 GLdouble xRight=10, xLeft=-xRight, yTop=10, yBot=-yTop, N=1, F=1000;
 
 // Camera parameters
-GLdouble eyeX=100.0, eyeY=100.0, eyeZ=100.0;
+GLdouble eyeX=10.0, eyeY=10.0, eyeZ=10.0;
 GLdouble lookX=0.0, lookY=0.0, lookZ=0.0;
 GLdouble upX=0, upY=1, upZ=0;
 
@@ -48,7 +48,7 @@ GLdouble angleGiraX = 0.0;
 GLdouble angleGiraY = 0.0;
 GLdouble angleGiraZ = 0.0;
 
-PV3D d = PV3D(0.5, 0, 0.8, 0); //Para proyección oblicua
+PV3D d = PV3D(0.1, 0.1, 1, 0); //Para proyección oblicua
 
 void initGL() {	 		 
 	glClearColor(0.6f,0.7f,0.8f,1.0);
@@ -283,12 +283,13 @@ void key(unsigned char key, int x, int y){
 		case 'p': //Perspectiva
 			glMatrixMode(GL_PROJECTION);
 			glLoadIdentity();
-			gluPerspective(5, 2, N, F);
+			gluPerspective(45, 1, N, F);
 			break;
 		case 'l': //Oblicua
 			glMatrixMode(GL_PROJECTION);
 			glLoadIdentity();
-			glOrtho(xLeft, xRight, yBot, yTop, N, F);
+			
+			d.normaliza();
 
 			if(d.getZ() != 0.0 && (d.getX() != 0 || d.getY() != 0 || d.getZ() != 1)){
 				GLfloat m[16] = {	
@@ -302,6 +303,7 @@ void key(unsigned char key, int x, int y){
 				m[12] = -N * (d.getX() / d.getZ());
 				m[13] = -N * (d.getY() / d.getZ());
 
+				glOrtho(xLeft, xRight, yBot, yTop, N, F);
 				glMultMatrixf(m);
 			}
 			break;
