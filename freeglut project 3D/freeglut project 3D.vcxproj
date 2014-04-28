@@ -64,15 +64,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cara.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Malla.cpp" />
+    <ClCompile Include="Matr.cpp" />
+    <ClCompile Include="Objeto3D.cpp" />
+    <ClCompile Include="ObjetoCompuesto3D.cpp" />
+    <ClCompile Include="ObjetoCuadrico.cpp" />
     <ClCompile Include="sources\Camara.cpp" />
     <ClCompile Include="sources\Coche.cpp" />
     <ClCompile Include="sources\PV3D.cpp" />
+    <ClCompile Include="Tablero.cpp" />
+    <ClCompile Include="TAfin.cpp" />
+    <ClCompile Include="TColor.cpp" />
+    <ClCompile Include="VerticeNormal.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cara.h" />
+    <ClInclude Include="Malla.h" />
+    <ClInclude Include="Matr.h" />
+    <ClInclude Include="Objeto3D.h" />
+    <ClInclude Include="ObjetoCompuesto3D.h" />
+    <ClInclude Include="ObjetoCuadrico.h" />
     <ClInclude Include="sources\Camara.h" />
     <ClInclude Include="sources\Coche.h" />
     <ClInclude Include="sources\PV3D.h" />
+    <ClInclude Include="Tablero.h" />
+    <ClInclude Include="TAfin.h" />
+    <ClInclude Include="TColor.h" />
+    <ClInclude Include="VerticeNormal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
