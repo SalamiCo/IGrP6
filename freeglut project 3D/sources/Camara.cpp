@@ -119,8 +119,11 @@ void Camara::giraX(GLdouble angle){
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	eye.setY(100 * cos(angle));
-	eye.setZ(100 * sin(angle));
+	GLdouble angle2 = atan2(eye.getZ(), eye.getY()) + angle;
+	GLdouble dst = sqrt((eye.getY() * eye.getY()) + (eye.getZ() * eye.getZ()));
+
+	eye.setY(dst * cos(angle2));
+	eye.setZ(dst * sin(angle2));
 	gluLookAt(eye.getX(), eye.getY(), eye.getZ(), look.getX(), look.getY(), look.getZ(), up.getX(), up.getY(), up.getZ());
 
 	glMatrixMode(GL_PROJECTION);
@@ -132,8 +135,11 @@ void Camara::giraY(GLdouble angle){
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	eye.setX(100 * cos(angle));
-	eye.setZ(100 * sin(angle));
+	GLdouble angle2 = atan2(eye.getZ(), eye.getX()) + angle;
+	GLdouble dst = sqrt((eye.getX() * eye.getX()) + (eye.getZ() * eye.getZ()));
+
+	eye.setX(dst * cos(angle2));
+	eye.setZ(dst * sin(angle2));
 	gluLookAt(eye.getX(), eye.getY(), eye.getZ(), look.getX(), look.getY(), look.getZ(), up.getX(), up.getY(), up.getZ());
 
 	glMatrixMode(GL_PROJECTION);
@@ -145,8 +151,11 @@ void Camara::giraZ(GLdouble angle){
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	eye.setX(100 * cos(angle));
-	eye.setY(100 * sin(angle));
+	GLdouble angle2 = atan2(eye.getY(), eye.getX()) + angle;
+	GLdouble dst = sqrt((eye.getY() * eye.getY()) + (eye.getX() * eye.getX()));
+
+	eye.setX(dst * cos(angle2));
+	eye.setY(dst * sin(angle2));
 	gluLookAt(eye.getX(), eye.getY(), eye.getZ(), look.getX(), look.getY(), look.getZ(), up.getX(), up.getY(), up.getZ());
 }
 

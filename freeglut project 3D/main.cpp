@@ -245,18 +245,18 @@ void key(unsigned char key, int x, int y){
 			break;
 
 		case '1': //Gira X
-			angleGiraX += 0.1;
-			camera.giraX(angleGiraX);
+			//angleGiraX += 0.1;
+			camera.giraX(0.1);
 			break;
 
 		case '2': //Gira Y
-			angleGiraY += 0.1;
-			camera.giraY(angleGiraY);
+			//angleGiraY += 0.1;
+			camera.giraY(0.1);
 			break;
 
 		case '3': //Gira Z
-			angleGiraZ += 0.1;
-			camera.giraZ(angleGiraZ);
+			//angleGiraZ += 0.1;
+			camera.giraZ(0.1);
 			break;
 
 		case '4': //Lateral
