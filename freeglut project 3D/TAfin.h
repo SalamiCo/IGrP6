@@ -19,6 +19,8 @@ public:
 	GLfloat* getMatr(){ return this->matr; }
 
 	void traslacion(GLfloat x, GLfloat y, GLfloat z);
+	void escalacion(GLfloat x, GLfloat y, GLfloat z);
+	void rotacion(GLfloat angle, GLfloat x, GLfloat y, GLfloat z);
 
 	void postMultiplica(GLfloat matr[16]);
 };
