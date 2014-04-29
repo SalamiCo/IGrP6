@@ -18,7 +18,7 @@
 #include <GL/freeglut.h>
 #include <GL/glut.h>
 
-class Malla : Objeto3D
+class Malla : public Objeto3D
 {
 private:
 	int numVertices;
