@@ -89,21 +89,21 @@ void Malla::hazMallaSuperficie(){
 	//Perfil por marco de Frenet
 	int nP = 20; //Numero de lados
 	PV3D perfil[20];
-	double r = 0.5; //Radio circulos
 	double inc = (2*M_PI)/nP;
+	double r = 0.5;
 	for(int i=0; i<nP; i++){
 		perfil[i] = PV3D(r*cos(2*M_PI-i*-inc), r*sin(2*M_PI-i*-inc), 0, 1);
 	}
 
 	Matr m;
-	numVertices = nP*150;
+	numVertices = 6;
 	vertice = new PV3D*[numVertices];
-	numNormales = nP*150;
+	numNormales = 6;
 	normal = new PV3D*[numNormales];
-	numCaras = nP*150;
+	numCaras = 6;
 	cara = new Cara*[numCaras];
 
-	for(int i=0; i<150; i++){
+	for(int i=0; i<2; i++){
 		float t = (4* M_PI * i) / 150.0;
 		m = Matr::matrizNBTC(t);
 		for(int j=0; j<nP; j++){

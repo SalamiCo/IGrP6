@@ -4,7 +4,7 @@
 
 class Objeto3D
 {
-private:
+protected:
 	TAfin* tAfin;
 
 public:

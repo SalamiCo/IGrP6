@@ -17,6 +17,8 @@ using namespace std;
 #include "Coche.h"
 #include "Camara.h"
 #include "PV3D.h"
+//#include "Objeto3D.h"
+#include "Tablero.h"
 
 // Freeglut parameters
 // Flag telling us to keep processing events
@@ -50,6 +52,8 @@ GLdouble angleGiraZ = 0.0;
 
 PV3D d = PV3D(0.1, 0.1, 1, 0); //Para proyección oblicua
 
+Objeto3D* tablero;
+
 void initGL() {	 		 
 	glClearColor(0.6f,0.7f,0.8f,1.0);
     glEnable(GL_LIGHTING);    
@@ -64,6 +68,9 @@ void initGL() {
 
 	// Camera set up
 	camera = Camara(PV3D(eyeX, eyeY, eyeZ, 1), PV3D(lookX, lookY, lookZ, 1), PV3D(upX, upY, upZ, 0));
+
+	//Tablero
+	tablero = new Tablero(6,6,6,6,4,2);
 
 	// Viewport set up
     glViewport(0, 0, WIDTH, HEIGHT);  
@@ -100,7 +107,7 @@ void display(void) {
 
 	//Our code
 
-	glPushMatrix();
+	/*glPushMatrix();
 	glMatrixMode(GL_MODELVIEW);
 
 	glRotated(angleX, 1,0,0);
@@ -112,7 +119,9 @@ void display(void) {
 	//coche.drawCoche(4);
 	glutSolidCube(4);
 
-	glPopMatrix();
+	glPopMatrix();*/
+	tablero->dibuja();
+
 	
 	glFlush();
 	glutSwapBuffers();

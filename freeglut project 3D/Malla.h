@@ -20,7 +20,7 @@
 
 class Malla : public Objeto3D
 {
-private:
+protected:
 	int numVertices;
 	PV3D** vertice;
 	int numNormales;
@@ -34,8 +34,17 @@ public:
 	Malla(void);
 	Malla(int numV, int numN, int numC, PV3D** v, PV3D** n, Cara** c);
 	~Malla(void);
-	virtual void dibuja(bool rellena, bool normales);
+	virtual void dibuja(){dibuja(true, false);};
+	void dibuja(bool rellena, bool normales);
 	PV3D* vectorNormalNewell(Cara* c);
 	void hazMallaSuperficie();
+
+	int getNumVertices(){return numVertices;}
+	int getNumNormales(){return numNormales;}
+	int getNumCaras(){return numCaras;}
+
+	void setNumVertices(int nv){this->numVertices = nv;}
+	void setNumNormales(int nn){this->numNormales = nn;}
+	void setNumCaras(int nc){this->numCaras = nc;}
 };
 

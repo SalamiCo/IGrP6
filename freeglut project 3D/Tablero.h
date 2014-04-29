@@ -8,24 +8,25 @@
 #include <GL/glut.h>
 
 #include "malla.h"
-class Tablero :
-	public Malla
+class Tablero : public Malla
 {
 private:
-	float anchoT, largoT, gruesoT;
-	int partesAncho, partesLargo, partesGrueso;
+	int anchoT, largoT, altoT;
+	int partesAncho, partesLargo, partesAlto;
 
 public:
 	Tablero(void);
-	Tablero(float a, float l, float g, int pa, int pl, int pg);
+	Tablero(int a, int l, int al, int pa, int pl, int pal);
 	~Tablero(void);
 
-	float getAncho(){return this->anchoT;}
-	float getLargo(){return this->largoT;}
-	float getGrueso(){return this->gruesoT;}
+	int getAncho(){return this->anchoT;}
+	int getLargo(){return this->largoT;}
+	int getAlto(){return this->altoT;}
 
 	int getPartesAncho(){return this->partesAncho;}
 	int getPartesLargo(){return this->partesLargo;}
-	int getPartesGrueso(){return this->partesGrueso;}
+	int getPartesAlto(){return this->partesAlto;}
+
+	//virtual void dibuja(){};
 };
 
