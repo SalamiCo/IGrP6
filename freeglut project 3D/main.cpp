@@ -20,6 +20,7 @@ using namespace std;
 //#include "Objeto3D.h"
 #include "Tablero.h"
 #include "ObjetoCompuesto3D.h"
+#include "TAfin.h"
 
 // Freeglut parameters
 // Flag telling us to keep processing events
@@ -60,6 +61,8 @@ void buildScene() {
 	objCompuesto = new ObjetoCompuesto3D();
 
 	//Tablero
+	TAfin* afinTablero = new TAfin();
+	afinTablero->traslacion(4,0,0);
 	tablero = new Tablero(8,12,4,4,6,2);
 
 	objCompuesto->addHijo(tablero);

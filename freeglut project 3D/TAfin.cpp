@@ -4,11 +4,10 @@
 TAfin::TAfin(void)
 {
 	this->matr = new GLfloat[16];
-}
-
-
-TAfin::~TAfin(void)
-{
+	glPushMatrix();
+    glLoadIdentity();
+	glGetFloatv(GL_MODELVIEW_MATRIX,this->matr);
+    glPopMatrix();
 }
 
 void TAfin::traslacion(GLfloat x, GLfloat y, GLfloat z){
@@ -44,7 +43,7 @@ void TAfin::rotacion(GLfloat angle, GLfloat x, GLfloat y, GLfloat z){
 	postMultiplica(mm);	
 }
 
-void TAfin::postMultiplica(GLfloat matr[16]){
+void TAfin::postMultiplica(GLfloat* matr){
 	glLoadMatrixf(this->matr);
 	glMultMatrixf(matr);
 }
