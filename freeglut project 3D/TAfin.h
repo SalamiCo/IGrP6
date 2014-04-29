@@ -10,6 +10,7 @@
 class TAfin
 {
 private:
+
 	GLfloat* matr;
 
 public:
