@@ -3,7 +3,7 @@
 
 #include "Malla.h"
 
-Malla::Malla(void){
+Malla::Malla(void):Objeto3D(new TAfin()){
 	this->numVertices = 0;
 	this->numNormales = 0;
 	this->numCaras = 0;
@@ -14,7 +14,7 @@ Malla::Malla(void){
 	angleX = angleY = angleZ = 0.0;
 }
 
-Malla::Malla(int numV, int numN, int numC, PV3D** v, PV3D** n, Cara** c){
+Malla::Malla(int numV, int numN, int numC, PV3D** v, PV3D** n, Cara** c, TAfin* ta):Objeto3D(ta){
 	this->numVertices = numV;
 	this->numNormales = numN;
 	this->numCaras = numC;
@@ -23,10 +23,6 @@ Malla::Malla(int numV, int numN, int numC, PV3D** v, PV3D** n, Cara** c){
 	this->cara = c;
 
 	angleX = angleY = angleZ = 0.0;
-}
-
-Malla::~Malla(void)
-{
 }
 
 void Malla::dibuja(bool rellena, bool normales){

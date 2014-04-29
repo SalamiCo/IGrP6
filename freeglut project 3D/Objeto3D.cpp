@@ -1,11 +1,7 @@
 #include "Objeto3D.h"
 
 
-Objeto3D::Objeto3D(void)
+Objeto3D::Objeto3D(TAfin* ta)
 {
-}
-
-
-Objeto3D::~Objeto3D(void)
-{
+	this->tAfin = ta;
 }

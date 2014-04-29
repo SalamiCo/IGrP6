@@ -5,7 +5,7 @@ class ObjetoCuadrico :
 {
 public:
 	ObjetoCuadrico(void);
-	~ObjetoCuadrico(void);
+	~ObjetoCuadrico(void){};
 
 	virtual void dibuja(){};
 };

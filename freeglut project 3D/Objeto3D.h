@@ -8,8 +8,8 @@ protected:
 	TAfin* tAfin;
 
 public:
-	Objeto3D(void);
-	~Objeto3D(void);
+	Objeto3D(TAfin* ta);
+	~Objeto3D(void){};
 
 	virtual void dibuja() = 0;
 

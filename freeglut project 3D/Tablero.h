@@ -16,7 +16,7 @@ private:
 
 public:
 	Tablero(void);
-	Tablero(int a, int l, int al, int pa, int pl, int pal);
+	Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta);
 	~Tablero(void);
 
 	int getAncho(){return this->anchoT;}

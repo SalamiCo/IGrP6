@@ -7,7 +7,7 @@ Tablero::Tablero(void)
 }
 
 //Largo = 6 vertices, Ancho = 4 vertices, alto = 2 vertices
-Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal){
+Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla(0, 0, 0, new PV3D*(), new PV3D*(), new Cara*(), ta){
 	this->anchoT = a;
 	this->largoT = l;
 	this->altoT = al;

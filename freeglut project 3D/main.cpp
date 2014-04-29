@@ -62,8 +62,8 @@ void buildScene() {
 
 	//Tablero
 	TAfin* afinTablero = new TAfin();
-	afinTablero->traslacion(4,0,0);
-	tablero = new Tablero(8,12,4,4,6,2);
+	afinTablero->traslacion(0,10,0);
+	tablero = new Tablero(8,12,4,4,6,2, afinTablero);
 
 	objCompuesto->addHijo(tablero);
 
