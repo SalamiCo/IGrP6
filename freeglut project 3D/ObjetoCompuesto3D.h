@@ -10,5 +10,7 @@ private:
 public:
 	ObjetoCompuesto3D(void);
 	~ObjetoCompuesto3D(void);
+
+
 };
 
