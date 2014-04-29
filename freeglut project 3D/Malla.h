@@ -28,8 +28,11 @@ private:
 	int numCaras;
 	Cara** cara;
 
+	GLfloat angleX, angleY, angleZ;
+
 public:
 	Malla(void);
+	Malla(int numV, int numN, int numC, PV3D** v, PV3D** n, Cara** c);
 	~Malla(void);
 	virtual void dibuja(bool rellena, bool normales);
 	PV3D* vectorNormalNewell(Cara* c);

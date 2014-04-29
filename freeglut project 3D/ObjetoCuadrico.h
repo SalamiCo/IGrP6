@@ -7,6 +7,6 @@ public:
 	ObjetoCuadrico(void);
 	~ObjetoCuadrico(void);
 
-	virtual void dibuja();
+	virtual void dibuja(){};
 };
 

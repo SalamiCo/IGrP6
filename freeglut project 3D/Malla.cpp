@@ -10,6 +10,19 @@ Malla::Malla(void){
 	this->vertice = new PV3D*[1];
 	this->normal = new PV3D*[numCaras];
 	this->cara = new Cara*[numCaras];
+	
+	angleX = angleY = angleZ = 0.0;
+}
+
+Malla::Malla(int numV, int numN, int numC, PV3D** v, PV3D** n, Cara** c){
+	this->numVertices = numV;
+	this->numNormales = numN;
+	this->numCaras = numC;
+	this->vertice = v;
+	this->normal = n;
+	this->cara = c;
+
+	angleX = angleY = angleZ = 0.0;
 }
 
 Malla::~Malla(void)
@@ -17,6 +30,13 @@ Malla::~Malla(void)
 }
 
 void Malla::dibuja(bool rellena, bool normales){
+	glPushMatrix();
+	glMatrixMode(GL_MODELVIEW);
+
+	glRotated(angleX, 1,0,0);
+	glRotated(angleY, 0,1,0);
+	glRotated(angleZ, 0,0,1);
+
 	for(int i = 0; i < numCaras; i++){
 		glColor3f(0.f, 0.f, 1.f);
 		glLineWidth(1.0);
@@ -48,6 +68,7 @@ void Malla::dibuja(bool rellena, bool normales){
 			glEnd();
 		}
 	}
+	glPopMatrix();
 }
 
 
