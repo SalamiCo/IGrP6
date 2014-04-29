@@ -34,7 +34,7 @@ public:
 	Malla(void);
 	Malla(int numV, int numN, int numC, PV3D** v, PV3D** n, Cara** c);
 	~Malla(void);
-	virtual void dibuja(){dibuja(false, false);};
+	virtual void dibuja(){dibuja(true, false);};
 	void dibuja(bool rellena, bool normales);
 	PV3D* vectorNormalNewell(Cara* c);
 	void hazMallaSuperficie();

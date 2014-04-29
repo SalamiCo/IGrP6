@@ -19,6 +19,7 @@ using namespace std;
 #include "PV3D.h"
 //#include "Objeto3D.h"
 #include "Tablero.h"
+#include "ObjetoCompuesto3D.h"
 
 // Freeglut parameters
 // Flag telling us to keep processing events
@@ -52,9 +53,25 @@ GLdouble angleGiraZ = 0.0;
 
 PV3D d = PV3D(0.1, 0.1, 1, 0); //Para proyección oblicua
 
+ObjetoCompuesto3D* objCompuesto;
 Objeto3D* tablero;
 
-void initGL() {	 		 
+void buildScene() {
+	objCompuesto = new ObjetoCompuesto3D();
+
+	//Tablero
+	tablero = new Tablero(8,12,4,4,6,2);
+
+	objCompuesto->addHijo(tablero);
+
+	// Camera set up
+	camera = Camara(PV3D(eyeX, eyeY, eyeZ, 1), PV3D(lookX, lookY, lookZ, 1), PV3D(upX, upY, upZ, 0));
+
+}
+
+void initGL() {	 	
+	buildScene();
+
 	glClearColor(0.6f,0.7f,0.8f,1.0);
     glEnable(GL_LIGHTING);    
 
@@ -63,14 +80,6 @@ void initGL() {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_NORMALIZE);
 	glShadeModel(GL_SMOOTH);
-
-	// buildSceneObjects();
-
-	// Camera set up
-	camera = Camara(PV3D(eyeX, eyeY, eyeZ, 1), PV3D(lookX, lookY, lookZ, 1), PV3D(upX, upY, upZ, 0));
-
-	//Tablero
-	tablero = new Tablero(8,12,4,4,6,2);
 
 	// Viewport set up
     glViewport(0, 0, WIDTH, HEIGHT);  
@@ -120,7 +129,9 @@ void display(void) {
 	glutSolidCube(4);
 
 	glPopMatrix();*/
-	tablero->dibuja();
+	//tablero->dibuja();
+
+	objCompuesto->dibuja();
 
 	
 	glFlush();

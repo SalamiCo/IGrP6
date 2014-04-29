@@ -16,7 +16,10 @@ private:
 
 public:
 	ObjetoCompuesto3D(void);
-	~ObjetoCompuesto3D(void);
+	~ObjetoCompuesto3D(void){};
+
+	void addHijo(Objeto3D* obj);
+	int getNumHijos(){ return this->numHijos; }
 
 	virtual void dibuja();
 };

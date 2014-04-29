@@ -2,11 +2,13 @@
 
 ObjetoCompuesto3D::ObjetoCompuesto3D(void)
 {
+	this->hijos = new Objeto3D*[15]; //15 por defecto
+	this->numHijos = 0;
 }
 
-
-ObjetoCompuesto3D::~ObjetoCompuesto3D(void)
-{
+void ObjetoCompuesto3D::addHijo(Objeto3D* obj){
+	hijos[numHijos] = obj;
+	numHijos++;
 }
 
 void ObjetoCompuesto3D::dibuja(){
@@ -14,7 +16,7 @@ void ObjetoCompuesto3D::dibuja(){
 		glMatrixMode(GL_MODELVIEW);
 		glPushMatrix();
 
-		glMultMatrixf(hijos[i]->getTAfin()->getMatr());
+		//glMultMatrixf(hijos[i]->getTAfin()->getMatr());
 		hijos[i]->dibuja();
 
 		glPopMatrix();
