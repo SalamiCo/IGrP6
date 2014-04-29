@@ -70,7 +70,7 @@ void initGL() {
 	camera = Camara(PV3D(eyeX, eyeY, eyeZ, 1), PV3D(lookX, lookY, lookZ, 1), PV3D(upX, upY, upZ, 0));
 
 	//Tablero
-	tablero = new Tablero(6,6,6,6,4,2);
+	tablero = new Tablero(8,12,4,4,6,2);
 
 	// Viewport set up
     glViewport(0, 0, WIDTH, HEIGHT);  
