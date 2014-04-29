@@ -1,4 +1,11 @@
 #pragma once
+
+#include <Windows.h>
+#include <gl/GL.h>
+#include <gl/GLU.h>
+
+#include <GL/freeglut.h>
+
 #include "objeto3d.h"
 class ObjetoCompuesto3D :
 	public Objeto3D
@@ -10,5 +17,7 @@ private:
 public:
 	ObjetoCompuesto3D(void);
 	~ObjetoCompuesto3D(void);
+
+	void dibuja();
 };
 

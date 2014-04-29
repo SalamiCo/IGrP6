@@ -2,7 +2,7 @@
 class TAfin
 {
 private:
-	float matr[4][4];
+	GLfloat matr[16];
 
 public:
 	TAfin(void);
