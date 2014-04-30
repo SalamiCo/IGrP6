@@ -78,6 +78,7 @@
     <ClCompile Include="TAfin.cpp" />
     <ClCompile Include="TCilindro.cpp" />
     <ClCompile Include="TColor.cpp" />
+    <ClCompile Include="TCubo.cpp" />
     <ClCompile Include="TEsfera.cpp" />
     <ClCompile Include="VerticeNormal.cpp" />
   </ItemGroup>
@@ -95,6 +96,7 @@
     <ClInclude Include="TAfin.h" />
     <ClInclude Include="TCilindro.h" />
     <ClInclude Include="TColor.h" />
+    <ClInclude Include="TCubo.h" />
     <ClInclude Include="TEsfera.h" />
     <ClInclude Include="VerticeNormal.h" />
   </ItemGroup>
