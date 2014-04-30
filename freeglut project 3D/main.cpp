@@ -66,8 +66,14 @@ void buildScene() {
 	afinTablero->traslacion(0,0,0);
 	tablero = new Tablero(8,12,4,4,6,2, afinTablero);
 
-	//Patas
+	//Bordes
 	TColor colorMarron = TColor((GLfloat)0.55, (GLfloat)0.27, (GLfloat)0.07);
+	Objeto3D* borde1 = new TCubo(1, 5, 4, 0.25, 10, 0.5, 0.5, colorMarron, 1);
+	Objeto3D* borde2 = new TCubo(1, 0.25, 4, 3, 0.5, 0.5, 6, colorMarron, 1);
+	Objeto3D* borde3 = new TCubo(1, 5, 4, 5.75, 10, 0.5, 0.5, colorMarron, 1);
+	Objeto3D* borde4 = new TCubo(1, 9.75, 4, 3, 0.5, 0.5, 6, colorMarron, 1);
+
+	//Patas
 	Objeto3D* pata1 = new TCilindro(0.5, 0.5, 2, 10, 4, 1, 0, 1, 270, 1, 0, 0, colorMarron);
 	Objeto3D* pata2 = new TCilindro(0.5, 0.5, 2, 10, 4, 9, 0, 1, 270, 1, 0, 0, colorMarron);
 	Objeto3D* pata3 = new TCilindro(0.5, 0.5, 2, 10, 4, 1, 0, 5, 270, 1, 0, 0, colorMarron);
@@ -99,15 +105,20 @@ void buildScene() {
 	//Taco
 	TColor colorGoldenRod = TColor((GLfloat)0.85, (GLfloat)0.65, (GLfloat)0.13);
 	TColor colorChocolate = TColor((GLfloat)0.82, (GLfloat)0.41, (GLfloat)0.12);
-	Objeto3D* taco = new TCilindro(0.1, 0.1, 4, 10, 4, 1, 4.2, 3, 270, 0, 1, 0, colorGoldenRod);
-	Objeto3D* mango = new TCilindro(0.1, 0.1, 3, 10, 4, -3, 4.2, 3, 270, 0, 1, 0, colorChocolate);
-	Objeto3D* punta = new TCilindro(0.1, 0.1, 0.5, 10, 4, 1.5, 4.2, 3, 270, 0, 1, 0, colorBlanco);
+	Objeto3D* taco = new TCilindro(0.1, 0.1, 4, 10, 4, 1, 4.4, 3, 270, 0, 1, 0, colorGoldenRod);
+	Objeto3D* mango = new TCilindro(0.1, 0.1, 3, 10, 4, -3, 4.4, 3, 270, 0, 1, 0, colorChocolate);
+	Objeto3D* punta = new TCilindro(0.1, 0.1, 0.5, 10, 4, 1.5, 4.4, 3, 270, 0, 1, 0, colorBlanco);
 
 	//Tiza
-	Objeto3D* tiza = new TCubo(0.1, 1, 4.1, 5, 1, 1, 1, colorBlanco);
+	Objeto3D* tiza = new TCubo(0.1, 0.3, 4.4, 5.7, 1, 1, 1, colorBlanco, 0);
 
 	//Añadir objetos
 	objCompuesto->addHijo(tablero);
+
+	objCompuesto->addHijo(borde1);
+	objCompuesto->addHijo(borde2);
+	objCompuesto->addHijo(borde3);
+	objCompuesto->addHijo(borde4);
 
 	objCompuesto->addHijo(pata1);
 	objCompuesto->addHijo(pata2);

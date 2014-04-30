@@ -20,10 +20,8 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta){
 	this->tAfin = ta;
 
 	setNumVertices((pl*pa*2) + (pa*pal*2) + (pl*pal*2)); //cara arriba + cara abajo + caras laterales
-	std::cout << numVertices << std::endl;
 	setNumNormales(numVertices);
 	setNumCaras(((pl-1)*(pa-1)*2) + ((pa-1)*(pal-1)*2) + ((pl-1)*(pal-1)*2));
-	std::cout << numCaras << std::endl;
 
 	vertice = new PV3D* [numVertices];
 	normal = new PV3D* [numNormales];
