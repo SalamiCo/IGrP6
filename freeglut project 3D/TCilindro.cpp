@@ -17,7 +17,7 @@ TCilindro::TCilindro(void)
 	this->zR = 0;
 }
 
-TCilindro::TCilindro(GLfloat base, GLfloat top, GLfloat heigth, GLfloat slices, GLfloat stacks, GLfloat xT, GLfloat yT, GLfloat zT, GLfloat angle, GLfloat xR, GLfloat yR, GLfloat zR, TColor c){
+TCilindro::TCilindro(GLfloat base, GLfloat top, GLfloat heigth, GLfloat slices, GLfloat stacks, GLfloat xT, GLfloat yT, GLfloat zT, GLfloat angle, GLfloat xR, GLfloat yR, GLfloat zR, TColor c, TAfin* ta){
 	this->base = base;
 	this->top = top;
 	this->heigth = heigth;
@@ -32,6 +32,7 @@ TCilindro::TCilindro(GLfloat base, GLfloat top, GLfloat heigth, GLfloat slices, 
 	this->yR = yR;
 	this->zR = zR;
 	this->color = c;
+	this->tAfin = ta;
 }
 
 TCilindro::~TCilindro(void)
@@ -39,10 +40,15 @@ TCilindro::~TCilindro(void)
 }
 
 void TCilindro::dibuja(){
+	glPushMatrix();
+	glMatrixMode(GL_MODELVIEW);
+
 	GLUquadricObj* cilindro = gluNewQuadric();
 	glColor3f(color.getRed(), color.getGreen(), color.getBlue());
-	glTranslatef(xT, yT, zT);
-	glRotated(angle, xR, yR, zR);
+	//glTranslatef(xT, yT, zT);
+	//glRotated(angle, xR, yR, zR);
 	gluCylinder(cilindro, base, top, heigth, slices, stacks);
 	gluDeleteQuadric(cilindro);
+
+	glPopMatrix();
 }

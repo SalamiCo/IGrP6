@@ -23,6 +23,6 @@ public:
 	void escalacion(GLfloat x, GLfloat y, GLfloat z);
 	void rotacion(GLfloat angle, GLfloat x, GLfloat y, GLfloat z);
 
-	void postMultiplica(GLfloat* matr);
+	void postMultiplica(GLfloat* mm);
 };
 

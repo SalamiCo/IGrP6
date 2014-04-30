@@ -7,13 +7,14 @@ Tablero::Tablero(void)
 }
 
 //Largo = 6 vertices, Ancho = 4 vertices, alto = 2 vertices
-Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla(0, 0, 0, new PV3D*(), new PV3D*(), new Cara*(), ta){
+Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta){
 	this->anchoT = a;
 	this->largoT = l;
 	this->altoT = al;
 	this->partesAncho = pa;
 	this->partesLargo = pl;
 	this->partesAlto = pal;
+	this->tAfin = ta;
 
 	setNumVertices((pl*pa*2) + (pa*pal*2) + (pl*pal*2)); //cara arriba + cara abajo + caras laterales
 	std::cout << numVertices << std::endl;

@@ -1,6 +1,6 @@
 #include "ObjetoCompuesto3D.h"
 
-ObjetoCompuesto3D::ObjetoCompuesto3D(void):Objeto3D(new TAfin())
+ObjetoCompuesto3D::ObjetoCompuesto3D(void)
 {
 	this->hijos = new Objeto3D*[15]; //15 por defecto
 	this->numHijos = 0;
