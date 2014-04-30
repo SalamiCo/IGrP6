@@ -8,20 +8,30 @@ TCilindro::TCilindro(void)
 	this->heigth = 0;
 	this->slices = 0;
 	this->stacks = 0;
-	this->x = 0;
-	this->y = 0;
-	this->z = 0;
+	this->xT = 0;
+	this->yT = 0;
+	this->zT = 0;
+	this->angle = 0;
+	this->xR = 0;
+	this->yR = 0;
+	this->zR = 0;
 }
 
-TCilindro::TCilindro(GLfloat base, GLfloat top, GLfloat heigth, GLfloat slices, GLfloat stacks, GLfloat x, GLfloat y, GLfloat z){
+TCilindro::TCilindro(GLfloat base, GLfloat top, GLfloat heigth, GLfloat slices, GLfloat stacks, GLfloat xT, GLfloat yT, GLfloat zT, GLfloat angle, GLfloat xR, GLfloat yR, GLfloat zR, TColor c){
 	this->base = base;
 	this->top = top;
 	this->heigth = heigth;
 	this->slices = slices;
 	this->stacks = stacks;
-	this->x = x;
-	this->y = y;
-	this->z = z;
+	this->xT = xT;
+	this->yT = yT;
+	this->zT = zT;
+	this->angle = angle;
+	this->angle = angle;
+	this->xR = xR;
+	this->yR = yR;
+	this->zR = zR;
+	this->color = c;
 }
 
 TCilindro::~TCilindro(void)
@@ -30,8 +40,9 @@ TCilindro::~TCilindro(void)
 
 void TCilindro::dibuja(){
 	GLUquadricObj* cilindro = gluNewQuadric();
-	glTranslatef(x, y, z);
-	glRotated(270, 1, 0, 0);
+	glColor3f(color.getRed(), color.getGreen(), color.getBlue());
+	glTranslatef(xT, yT, zT);
+	glRotated(angle, xR, yR, zR);
 	gluCylinder(cilindro, base, top, heigth, slices, stacks);
 	gluDeleteQuadric(cilindro);
 }

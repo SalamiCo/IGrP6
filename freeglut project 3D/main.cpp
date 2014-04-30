@@ -68,10 +68,11 @@ void buildScene() {
 	tablero = new Tablero(8,12,4,4,6,2, afinTablero);
 
 	//Patas
-	Objeto3D* pata1 = new TCilindro(0.5, 0.5, 2, 10, 4, 1, 0, 1);
-	Objeto3D* pata2 = new TCilindro(0.5, 0.5, 2, 10, 4, 9, 0, 1);
-	Objeto3D* pata3 = new TCilindro(0.5, 0.5, 2, 10, 4, 1, 0, 5);
-	Objeto3D* pata4 = new TCilindro(0.5, 0.5, 2, 10, 4, 9, 0, 5);
+	TColor colorMarron = TColor((GLfloat)0.55, (GLfloat)0.27, (GLfloat)0.07);
+	Objeto3D* pata1 = new TCilindro(0.5, 0.5, 2, 10, 4, 1, 0, 1, 270, 1, 0, 0, colorMarron);
+	Objeto3D* pata2 = new TCilindro(0.5, 0.5, 2, 10, 4, 9, 0, 1, 270, 1, 0, 0, colorMarron);
+	Objeto3D* pata3 = new TCilindro(0.5, 0.5, 2, 10, 4, 1, 0, 5, 270, 1, 0, 0, colorMarron);
+	Objeto3D* pata4 = new TCilindro(0.5, 0.5, 2, 10, 4, 9, 0, 5, 270, 1, 0, 0, colorMarron);
 
 	//Bolas
 	TColor colorBlanco = TColor((GLfloat)1.0, (GLfloat)1.0, (GLfloat)1.0);
@@ -96,12 +97,21 @@ void buildScene() {
 	Objeto3D* bola14 = new TEsfera(0.2, 30, 30, 7.8, 4.2, 2.6, colorRojo);
 	Objeto3D* bola15 = new TEsfera(0.2, 30, 30, 7.8, 4.2, 2.2, colorRojo);
 
+	//Taco
+	TColor colorGoldenRod = TColor((GLfloat)0.85, (GLfloat)0.65, (GLfloat)0.13);
+	TColor colorChocolate = TColor((GLfloat)0.82, (GLfloat)0.41, (GLfloat)0.12);
+	Objeto3D* taco = new TCilindro(0.1, 0.1, 4, 10, 4, 1, 4.2, 3, 270, 0, 1, 0, colorGoldenRod);
+	Objeto3D* mango = new TCilindro(0.1, 0.1, 3, 10, 4, -3, 4.2, 3, 270, 0, 1, 0, colorChocolate);
+	Objeto3D* punta = new TCilindro(0.1, 0.1, 0.5, 10, 4, 1.5, 4.2, 3, 270, 0, 1, 0, colorBlanco);
+
 	//Añadir objetos
 	objCompuesto->addHijo(tablero);
+
 	objCompuesto->addHijo(pata1);
 	objCompuesto->addHijo(pata2);
 	objCompuesto->addHijo(pata3);
 	objCompuesto->addHijo(pata4);
+
 	objCompuesto->addHijo(bolaBlanca);
 	objCompuesto->addHijo(bolaNegra);
 	objCompuesto->addHijo(bola1);
@@ -118,6 +128,10 @@ void buildScene() {
 	objCompuesto->addHijo(bola13);
 	objCompuesto->addHijo(bola14);
 	objCompuesto->addHijo(bola15);
+
+	objCompuesto->addHijo(taco);
+	objCompuesto->addHijo(mango);
+	objCompuesto->addHijo(punta);
 
 	// Camera set up
 	camera = Camara(PV3D(eyeX, eyeY, eyeZ, 1), PV3D(lookX, lookY, lookZ, 1), PV3D(upX, upY, upZ, 0));

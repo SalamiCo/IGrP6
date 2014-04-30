@@ -46,8 +46,8 @@ void Malla::dibuja(bool rellena, bool normales){
 
 		//Color marron
 		if(i < 15){
-			TColor colorMarron = TColor((GLfloat)0.0, (GLfloat)0.5, (GLfloat)0.0);
-			glColor3f(colorMarron.getRed(), colorMarron.getGreen(), colorMarron.getBlue());
+			TColor colorVerde = TColor((GLfloat)0.0, (GLfloat)0.5, (GLfloat)0.0);
+			glColor3f(colorVerde.getRed(), colorVerde.getGreen(), colorVerde.getBlue());
 		} else {
 			TColor colorMarron = TColor((GLfloat)0.55, (GLfloat)0.27, (GLfloat)0.07);
 			glColor3f(colorMarron.getRed(), colorMarron.getGreen(), colorMarron.getBlue());
