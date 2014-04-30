@@ -11,11 +11,12 @@ class TCubo : public ObjetoCuadrico
 private:
 	GLfloat lado;
 	GLfloat xT, yT, zT;
+	GLfloat xE, yE, zE;
 	TColor color;
 
 public:
 	TCubo(void);
-	TCubo(GLfloat l, GLfloat xT, GLfloat yT, GLfloat zT, TColor c);
+	TCubo(GLfloat l, GLfloat xT, GLfloat yT, GLfloat zT, GLfloat xE, GLfloat yE, GLfloat zE, TColor c);
 	~TCubo(void);
 
 	virtual void dibuja();

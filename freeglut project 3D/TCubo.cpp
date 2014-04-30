@@ -12,12 +12,18 @@ TCubo::TCubo(void)
 	this->zT = 0;
 }
 
-TCubo::TCubo(GLfloat l, GLfloat xT, GLfloat yT, GLfloat zT,  TColor c){
+TCubo::TCubo(GLfloat l, GLfloat xT, GLfloat yT, GLfloat zT, GLfloat xE, GLfloat yE, GLfloat zE, TColor c){
 	this->lado = l;
 	this->color = c;
 	this->xT = xT;
 	this->yT = yT;
 	this->zT = zT;
+	this->xE = xE;
+	this->yE = yE;
+	this->zE = zE;
+	TAfin* afin = new TAfin();
+	afin->escalacion(xE, yE, zE);
+	afin->traslacion(xT, yT, zT);
 }
 
 

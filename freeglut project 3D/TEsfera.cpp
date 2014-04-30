@@ -22,6 +22,9 @@ TEsfera::TEsfera(GLfloat radius, GLfloat slices, GLfloat stacks, GLfloat x, GLfl
 	this->y = y;
 	this->z = z;
 	this->color = c;
+	TAfin* afin = new TAfin();
+	afin->traslacion(x, y, z);
+	this->tAfin = afin;
 }
 
 TEsfera::~TEsfera(void)
@@ -31,7 +34,6 @@ TEsfera::~TEsfera(void)
 void TEsfera::dibuja(){
 	GLUquadricObj* esfera = gluNewQuadric();
 	glColor3f(color.getRed(), color.getGreen(), color.getBlue());
-	glTranslatef(x, y, z);
 	gluSphere(esfera, radius, slices, stacks);
 	gluDeleteQuadric(esfera);
 }

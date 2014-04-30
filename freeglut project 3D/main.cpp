@@ -117,7 +117,7 @@ void buildScene() {
 	Objeto3D* taco = new TCilindro(0.1, 0.1, 4, 10, 4, 1, 4.2, 3, 270, 0, 1, 0, colorGoldenRod, afinTaco);
 	TAfin* afinMango = new TAfin();
 	afinMango->rotacion(270, 0, 1, 0);
-	afinMango->traslacion(1, 4.2, 3);
+	afinMango->traslacion(-3, 4.2, 3);
 	Objeto3D* mango = new TCilindro(0.1, 0.1, 3, 10, 4, -3, 4.2, 3, 270, 0, 1, 0, colorChocolate, afinMango);
 	TAfin* afinPunta = new TAfin();
 	afinPunta->rotacion(270, 0, 1, 0);
@@ -125,7 +125,7 @@ void buildScene() {
 	Objeto3D* punta = new TCilindro(0.1, 0.1, 0.5, 10, 4, 1.5, 4.2, 3, 270, 0, 1, 0, colorBlanco, afinPunta);
 
 	//Tiza
-	Objeto3D* tiza = new TCubo(0.1, 1, 4.1, 5, colorBlanco);
+	Objeto3D* tiza = new TCubo(0.1, 1, 4.1, 5, 0, 0, 0, colorBlanco);
 
 	//Añadir objetos
 	objCompuesto->addHijo(tablero);
