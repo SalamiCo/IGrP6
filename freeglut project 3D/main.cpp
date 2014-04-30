@@ -21,6 +21,7 @@ using namespace std;
 #include "Tablero.h"
 #include "ObjetoCompuesto3D.h"
 #include "TAfin.h"
+#include "TCilindro.h"
 
 // Freeglut parameters
 // Flag telling us to keep processing events
@@ -65,7 +66,18 @@ void buildScene() {
 	afinTablero->traslacion(0,10,0);
 	tablero = new Tablero(8,12,4,4,6,2, afinTablero);
 
+	//Patas
+	Objeto3D* pata1 = new TCilindro(0.5, 0.5, 2, 10, 4, 1, 0, 1);
+	Objeto3D* pata2 = new TCilindro(0.5, 0.5, 2, 10, 4, 9, 0, 1);
+	Objeto3D* pata3 = new TCilindro(0.5, 0.5, 2, 10, 4, 1, 0, 5);
+	Objeto3D* pata4 = new TCilindro(0.5, 0.5, 2, 10, 4, 9, 0, 5);
+
+	//Añadir objetos
 	objCompuesto->addHijo(tablero);
+	objCompuesto->addHijo(pata1);
+	objCompuesto->addHijo(pata2);
+	objCompuesto->addHijo(pata3);
+	objCompuesto->addHijo(pata4);
 
 	// Camera set up
 	camera = Camara(PV3D(eyeX, eyeY, eyeZ, 1), PV3D(lookX, lookY, lookZ, 1), PV3D(upX, upY, upZ, 0));
@@ -75,7 +87,8 @@ void buildScene() {
 void initGL() {	 	
 	buildScene();
 
-	glClearColor(0.6f,0.7f,0.8f,1.0);
+	//glClearColor(0.6f,0.7f,0.8f,1.0);
+	glClearColor(0.0f,0.0f,0.0f,1.0);
     glEnable(GL_LIGHTING);    
 
 	glEnable(GL_COLOR_MATERIAL);

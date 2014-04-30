@@ -76,7 +76,9 @@
     <ClCompile Include="sources\PV3D.cpp" />
     <ClCompile Include="Tablero.cpp" />
     <ClCompile Include="TAfin.cpp" />
+    <ClCompile Include="TCilindro.cpp" />
     <ClCompile Include="TColor.cpp" />
+    <ClCompile Include="TEsfera.cpp" />
     <ClCompile Include="VerticeNormal.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -91,7 +93,9 @@
     <ClInclude Include="sources\PV3D.h" />
     <ClInclude Include="Tablero.h" />
     <ClInclude Include="TAfin.h" />
+    <ClInclude Include="TCilindro.h" />
     <ClInclude Include="TColor.h" />
+    <ClInclude Include="TEsfera.h" />
     <ClInclude Include="VerticeNormal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
