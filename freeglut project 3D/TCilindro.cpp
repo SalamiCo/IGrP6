@@ -29,11 +29,9 @@ TCilindro::~TCilindro(void)
 }
 
 void TCilindro::dibuja(){
-	//glPushMatrix();
 	GLUquadricObj* cilindro = gluNewQuadric();
 	glTranslatef(x, y, z);
 	glRotated(270, 1, 0, 0);
 	gluCylinder(cilindro, base, top, heigth, slices, stacks);
 	gluDeleteQuadric(cilindro);
-	//glPopMatrix();
 }

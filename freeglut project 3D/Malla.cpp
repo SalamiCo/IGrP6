@@ -45,8 +45,13 @@ void Malla::dibuja(bool rellena, bool normales){
 		glBegin(GL_POLYGON);
 
 		//Color marron
-		TColor colorMarron = TColor((GLfloat)0.55, (GLfloat)0.27, (GLfloat)0.07);
-		glColor3f(colorMarron.getRed(), colorMarron.getGreen(), colorMarron.getBlue());
+		if(i < 15){
+			TColor colorMarron = TColor((GLfloat)0.0, (GLfloat)0.5, (GLfloat)0.0);
+			glColor3f(colorMarron.getRed(), colorMarron.getGreen(), colorMarron.getBlue());
+		} else {
+			TColor colorMarron = TColor((GLfloat)0.55, (GLfloat)0.27, (GLfloat)0.07);
+			glColor3f(colorMarron.getRed(), colorMarron.getGreen(), colorMarron.getBlue());
+		}
 
 		for(int j = 0; j < cara[i]->getNumVertices(); j++){
 			int iN = cara[i]->getIndiceNormalK(j);
