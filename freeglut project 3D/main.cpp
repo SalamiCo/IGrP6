@@ -125,7 +125,7 @@ void buildScene() {
 	Objeto3D* punta = new TCilindro(0.1, 0.1, 0.5, 10, 4, 1.5, 4.2, 3, 270, 0, 1, 0, colorBlanco, afinPunta);
 
 	//Tiza
-	Objeto3D* tiza = new TCubo(0.1, 1, 4.1, 5, 0, 0, 0, colorBlanco);
+	Objeto3D* tiza = new TCubo(0.1, 1, 4.1, 5, 1, 1, 1, colorBlanco);
 
 	//Añadir objetos
 	objCompuesto->addHijo(tablero);

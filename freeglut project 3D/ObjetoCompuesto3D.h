@@ -25,5 +25,9 @@ public:
 	int getNumHijos(){ return this->numHijos; }
 
 	virtual void dibuja();
+
+	void traslacionEscena();
+	void escalacionEscena();
+	void rotacionEscena();
 };
 

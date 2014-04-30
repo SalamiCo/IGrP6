@@ -24,6 +24,7 @@ TCubo::TCubo(GLfloat l, GLfloat xT, GLfloat yT, GLfloat zT, GLfloat xE, GLfloat 
 	TAfin* afin = new TAfin();
 	afin->escalacion(xE, yE, zE);
 	afin->traslacion(xT, yT, zT);
+	this->tAfin = afin;
 }
 
 
@@ -33,7 +34,7 @@ TCubo::~TCubo(void)
 
 void TCubo::dibuja(){
 	glColor3f(color.getRed(), color.getGreen(), color.getBlue());
-	glTranslated(xT, yT, zT);
+	//glTranslated(xT, yT, zT);
 
 	glBegin(GL_POLYGON);
 	glVertex3f(  lado, -lado, -lado );
