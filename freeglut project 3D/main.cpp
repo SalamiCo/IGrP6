@@ -74,22 +74,10 @@ void buildScene() {
 	Objeto3D* borde4 = new TCubo(1, 9.75, 4, 3, 0.5, 0.5, 6, colorMarron, 1);
 
 	//Patas
-	TAfin* afinPata1 = new TAfin();
-	afinPata1->rotacion(270, 1, 0, 0);
-	afinPata1->traslacion(1, 0, 1);
-	Objeto3D* pata1 = new TCilindro(0.5, 0.5, 2, 10, 4, 1, 0, 1, 270, 1, 0, 0, colorMarron, afinPata1);
-	TAfin* afinPata2 = new TAfin();
-	afinPata2->rotacion(270, 1, 0, 0);
-	afinPata2->traslacion(9, 0, 1);
-	Objeto3D* pata2 = new TCilindro(0.5, 0.5, 2, 10, 4, 9, 0, 1, 270, 1, 0, 0, colorMarron, afinPata2);
-	TAfin* afinPata3 = new TAfin();
-	afinPata3->rotacion(270, 1, 0, 0);
-	afinPata3->traslacion(1, 0, 5);
-	Objeto3D* pata3 = new TCilindro(0.5, 0.5, 2, 10, 4, 1, 0, 5, 270, 1, 0, 0, colorMarron, afinPata3);
-	TAfin* afinPata4 = new TAfin();
-	afinPata4->rotacion(270, 1, 0, 0);
-	afinPata4->traslacion(9, 0, 5);
-	Objeto3D* pata4 = new TCilindro(0.5, 0.5, 2, 10, 4, 9, 0, 5, 270, 1, 0, 0, colorMarron, afinPata4);
+	Objeto3D* pata1 = new TCilindro(0.5, 0.5, 2, 10, 4, 1, 0, 1, 270, 1, 0, 0, colorMarron);
+	Objeto3D* pata2 = new TCilindro(0.5, 0.5, 2, 10, 4, 9, 0, 1, 270, 1, 0, 0, colorMarron);
+	Objeto3D* pata3 = new TCilindro(0.5, 0.5, 2, 10, 4, 1, 0, 5, 270, 1, 0, 0, colorMarron);
+	Objeto3D* pata4 = new TCilindro(0.5, 0.5, 2, 10, 4, 9, 0, 5, 270, 1, 0, 0, colorMarron);
 
 	//Bolas
 	TColor colorBlanco = TColor((GLfloat)1.0, (GLfloat)1.0, (GLfloat)1.0);
@@ -117,18 +105,9 @@ void buildScene() {
 	//Taco
 	TColor colorGoldenRod = TColor((GLfloat)0.85, (GLfloat)0.65, (GLfloat)0.13);
 	TColor colorChocolate = TColor((GLfloat)0.82, (GLfloat)0.41, (GLfloat)0.12);
-	TAfin* afinTaco = new TAfin();
-	afinTaco->rotacion(270, 0, 1, 0);
-	afinTaco->traslacion(1, 4.2, 3);
-	Objeto3D* taco = new TCilindro(0.1, 0.1, 4, 10, 4, 1, 4.2, 3, 270, 0, 1, 0, colorGoldenRod, afinTaco);
-	TAfin* afinMango = new TAfin();
-	afinMango->rotacion(270, 0, 1, 0);
-	afinMango->traslacion(-3, 4.2, 3);
-	Objeto3D* mango = new TCilindro(0.1, 0.1, 3, 10, 4, -3, 4.2, 3, 270, 0, 1, 0, colorChocolate, afinMango);
-	TAfin* afinPunta = new TAfin();
-	afinPunta->rotacion(270, 0, 1, 0);
-	afinPunta->traslacion(1.5, 4.2, 3);
-	Objeto3D* punta = new TCilindro(0.1, 0.1, 0.5, 10, 4, 1.5, 4.2, 3, 270, 0, 1, 0, colorBlanco, afinPunta);
+	Objeto3D* taco = new TCilindro(0.1, 0.1, 4, 10, 4, 1, 4.4, 3, 270, 0, 1, 0, colorGoldenRod);
+	Objeto3D* mango = new TCilindro(0.1, 0.1, 3, 10, 4, -3, 4.4, 3, 270, 0, 1, 0, colorChocolate);
+	Objeto3D* punta = new TCilindro(0.1, 0.1, 0.5, 10, 4, 1.5, 4.4, 3, 270, 0, 1, 0, colorBlanco);
 
 	//Tiza
 	Objeto3D* tiza = new TCubo(0.1, 0.3, 4.4, 5.7, 1, 1, 1, colorBlanco, 0);
@@ -221,21 +200,6 @@ void display(void) {
 	glEnd();
 
 	//Our code
-
-	/*glPushMatrix();
-	glMatrixMode(GL_MODELVIEW);
-
-	glRotated(angleX, 1,0,0);
-	glRotated(angleY, 0,1,0);
-	glRotated(angleZ, 0,0,1);
-
-
-	glColor3f(1.0, 0.0, 0.0);
-	//coche.drawCoche(4);
-	glutSolidCube(4);
-
-	glPopMatrix();*/
-	//tablero->dibuja();
 	objCompuesto->dibuja();
 
 	
@@ -431,6 +395,27 @@ void key(unsigned char key, int x, int y){
 				glOrtho(xLeft, xRight, yBot, yTop, N, F);
 				glMultMatrixf(m);
 			}
+			break;
+
+		case 'y': //Trasladar escena
+			objCompuesto->traslacionEscena(1, 0, 0);
+			break;
+		case 'h':
+			objCompuesto->traslacionEscena(-1, 0, 0);
+			break;
+
+		case 'g': //Escalacion escena
+			objCompuesto->escalacionEscena(1, 2, 1);
+			break;
+		case 'b':
+			objCompuesto->escalacionEscena(1, 0.5, 1);
+			break;
+
+		case '8':
+			objCompuesto->rotacionEscena(2,0,1,0);
+			break;
+		case '9':
+			objCompuesto->rotacionEscena(-2,0,1,0);
 			break;
 
 		default:

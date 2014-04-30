@@ -25,3 +25,24 @@ void ObjetoCompuesto3D::dibuja(){
 		glPopMatrix();
 	}
 }
+
+void ObjetoCompuesto3D::traslacionEscena(GLfloat x, GLfloat y, GLfloat z){
+	for(int i=0; i<numHijos; i++){
+		TAfin* ta = hijos[i]->getTAfin();
+		ta->traslacion(x,y,z);
+	}
+}
+
+void ObjetoCompuesto3D::escalacionEscena(GLfloat x, GLfloat y, GLfloat z){
+	for(int i=0; i<numHijos; i++){
+		TAfin* ta = hijos[i]->getTAfin();
+		ta->escalacion(x,y,z);
+	}
+}
+
+void ObjetoCompuesto3D::rotacionEscena(GLfloat angle, GLfloat x, GLfloat y, GLfloat z){
+	for(int i=0; i<numHijos; i++){
+		TAfin* ta = hijos[i]->getTAfin();
+		ta->rotacion(angle,x,y,z);
+	}
+}
