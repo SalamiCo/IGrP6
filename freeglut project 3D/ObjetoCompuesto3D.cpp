@@ -1,3 +1,6 @@
+//Pedro Morgado Alarcón
+//Samuel Méndez Galán
+
 #include "ObjetoCompuesto3D.h"
 
 ObjetoCompuesto3D::ObjetoCompuesto3D(void):Objeto3D(new TAfin())

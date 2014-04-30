@@ -72,7 +72,6 @@
     <ClCompile Include="ObjetoCompuesto3D.cpp" />
     <ClCompile Include="ObjetoCuadrico.cpp" />
     <ClCompile Include="sources\Camara.cpp" />
-    <ClCompile Include="sources\Coche.cpp" />
     <ClCompile Include="sources\PV3D.cpp" />
     <ClCompile Include="Tablero.cpp" />
     <ClCompile Include="TAfin.cpp" />
@@ -90,7 +89,6 @@
     <ClInclude Include="ObjetoCompuesto3D.h" />
     <ClInclude Include="ObjetoCuadrico.h" />
     <ClInclude Include="sources\Camara.h" />
-    <ClInclude Include="sources\Coche.h" />
     <ClInclude Include="sources\PV3D.h" />
     <ClInclude Include="Tablero.h" />
     <ClInclude Include="TAfin.h" />

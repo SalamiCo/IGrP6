@@ -14,7 +14,6 @@
 #include <iostream>
 using namespace std;
 
-#include "Coche.h"
 #include "Camara.h"
 #include "PV3D.h"
 //#include "Objeto3D.h"
@@ -41,7 +40,6 @@ GLdouble lookX=0.0, lookY=0.0, lookZ=0.0;
 GLdouble upX=0, upY=1, upZ=0;
 
 //Our parameters
-Coche coche;
 GLdouble angleX = 0.0;
 GLdouble angleY = 0.0;
 GLdouble angleZ = 0.0;
