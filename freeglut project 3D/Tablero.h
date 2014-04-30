@@ -29,7 +29,5 @@ public:
 	int getPartesAncho(){return this->partesAncho;}
 	int getPartesLargo(){return this->partesLargo;}
 	int getPartesAlto(){return this->partesAlto;}
-
-	//virtual void dibuja(){};
 };
 
