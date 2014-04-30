@@ -14,7 +14,6 @@
 #include <iostream>
 using namespace std;
 
-#include "Coche.h"
 #include "Camara.h"
 #include "PV3D.h"
 //#include "Objeto3D.h"
@@ -23,6 +22,7 @@ using namespace std;
 #include "TAfin.h"
 #include "TCilindro.h"
 #include "TEsfera.h"
+#include "TCubo.h"
 
 // Freeglut parameters
 // Flag telling us to keep processing events
@@ -35,12 +35,11 @@ int WIDTH= 500, HEIGHT= 500;
 GLdouble xRight=10, xLeft=-xRight, yTop=10, yBot=-yTop, N=1, F=1000;
 
 // Camera parameters
-GLdouble eyeX=10.0, eyeY=10.0, eyeZ=10.0;
+GLdouble eyeX=25.0, eyeY=25.0, eyeZ=25.0;
 GLdouble lookX=0.0, lookY=0.0, lookZ=0.0;
 GLdouble upX=0, upY=1, upZ=0;
 
 //Our parameters
-Coche coche;
 GLdouble angleX = 0.0;
 GLdouble angleY = 0.0;
 GLdouble angleZ = 0.0;
@@ -125,6 +124,9 @@ void buildScene() {
 	afinPunta->traslacion(1.5, 4.2, 3);
 	Objeto3D* punta = new TCilindro(0.1, 0.1, 0.5, 10, 4, 1.5, 4.2, 3, 270, 0, 1, 0, colorBlanco, afinPunta);
 
+	//Tiza
+	Objeto3D* tiza = new TCubo(0.1, 1, 4.1, 5, colorBlanco);
+
 	//Añadir objetos
 	objCompuesto->addHijo(tablero);
 
@@ -153,6 +155,8 @@ void buildScene() {
 	objCompuesto->addHijo(taco);
 	objCompuesto->addHijo(mango);
 	objCompuesto->addHijo(punta);
+
+	objCompuesto->addHijo(tiza);
 
 	// Camera set up
 	camera = Camara(PV3D(eyeX, eyeY, eyeZ, 1), PV3D(lookX, lookY, lookZ, 1), PV3D(upX, upY, upZ, 0));
