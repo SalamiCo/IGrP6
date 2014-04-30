@@ -66,8 +66,14 @@ void buildScene() {
 	afinTablero->traslacion(0,0,0);
 	tablero = new Tablero(8,12,4,4,6,2, afinTablero);
 
-	//Patas
+	//Bordes
 	TColor colorMarron = TColor((GLfloat)0.55, (GLfloat)0.27, (GLfloat)0.07);
+	Objeto3D* borde1 = new TCubo(1, 5, 4, 0.25, 10, 0.5, 0.5, colorMarron, 1);
+	Objeto3D* borde2 = new TCubo(1, 0.25, 4, 3, 0.5, 0.5, 6, colorMarron, 1);
+	Objeto3D* borde3 = new TCubo(1, 5, 4, 5.75, 10, 0.5, 0.5, colorMarron, 1);
+	Objeto3D* borde4 = new TCubo(1, 9.75, 4, 3, 0.5, 0.5, 6, colorMarron, 1);
+
+	//Patas
 	TAfin* afinPata1 = new TAfin();
 	afinPata1->rotacion(270, 1, 0, 0);
 	afinPata1->traslacion(1, 0, 1);
@@ -125,10 +131,15 @@ void buildScene() {
 	Objeto3D* punta = new TCilindro(0.1, 0.1, 0.5, 10, 4, 1.5, 4.2, 3, 270, 0, 1, 0, colorBlanco, afinPunta);
 
 	//Tiza
-	Objeto3D* tiza = new TCubo(0.1, 1, 4.1, 5, 1, 1, 1, colorBlanco);
+	Objeto3D* tiza = new TCubo(0.1, 0.3, 4.4, 5.7, 1, 1, 1, colorBlanco, 0);
 
 	//Añadir objetos
 	objCompuesto->addHijo(tablero);
+
+	objCompuesto->addHijo(borde1);
+	objCompuesto->addHijo(borde2);
+	objCompuesto->addHijo(borde3);
+	objCompuesto->addHijo(borde4);
 
 	objCompuesto->addHijo(pata1);
 	objCompuesto->addHijo(pata2);
