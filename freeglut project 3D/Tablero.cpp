@@ -31,7 +31,8 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 		for(int j = 0; j < pl; j++){ //largo
 			int indiceVertice = i * pl + j;
 			vertice[indiceVertice] = new PV3D(u*j, al, v*(pa-i-1), 1);
-			normal[indiceVertice] = new PV3D();
+			normal[indiceVertice] = new PV3D(u*j, al, v*(pa-i-1), 0);
+			normal[indiceVertice]->normaliza();
 
 			if(i > 0 && j > 0){
 				int indiceCara = (i-1) * (pl-1) + (j-1);
@@ -41,7 +42,6 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 				vns[2] = new VerticeNormal(indiceVertice-pl-1, indiceVertice-pl-1);
 				vns[3] = new VerticeNormal(indiceVertice-1, indiceVertice-1);
 				cara[indiceCara] = new Cara(4, vns);
-				//std::cout << indiceCara << std::endl;
 			}
 		}	
 	}
@@ -51,8 +51,8 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 		for(int j = 0; j < pl; j++){ //largo
 			int indiceVertice = (i * pl + j) + 24;
 			vertice[indiceVertice] = new PV3D(u*j, al - 2, v*(pa-i-1), 1);
-			normal[indiceVertice] = new PV3D();
-			//std::cout << indiceVertice << std::endl;
+			normal[indiceVertice] = new PV3D(u*j, al - 2, v*(pa-i-1), 0);
+			normal[indiceVertice]->normaliza();
 
 			if(i > 0 && j > 0){
 				int indiceCara = ((i-1) * (pl-1) + (j-1)) + 15;
@@ -62,7 +62,6 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 				vns[2] = new VerticeNormal(indiceVertice-pl-1, indiceVertice-pl-1);
 				vns[3] = new VerticeNormal(indiceVertice-1, indiceVertice-1);
 				cara[indiceCara] = new Cara(4, vns);
-				//std::cout << indiceCara << std::endl;
 			}
 		}
 	}
@@ -73,8 +72,8 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 		for(int j = 0; j < pl; j++){ //largo
 			int indiceVertice = (i * pl + j) + 48;
 			vertice[indiceVertice] = new PV3D(u*j, (v*i) + 2, 0, 1);
-			normal[indiceVertice] = new PV3D();
-			//std::cout << indiceVertice << std::endl;
+			normal[indiceVertice] = new PV3D(u*j, (v*i) + 2, 0, 0);
+			normal[indiceVertice]->normaliza();
 
 			if(i > 0 && j > 0){
 				int indiceCara = ((i-1) * (pl-1) + (j-1)) + 30;
@@ -84,7 +83,6 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 				vns[2] = new VerticeNormal(indiceVertice-pl-1, indiceVertice-pl-1);
 				vns[3] = new VerticeNormal(indiceVertice-1, indiceVertice-1);
 				cara[indiceCara] = new Cara(4, vns);
-				//std::cout << indiceCara << std::endl;
 			}
 		}
 	}
@@ -94,8 +92,8 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 		for(int j = 0; j < pl; j++){ //largo
 			int indiceVertice = (i * pl + j) + 60;
 			vertice[indiceVertice] = new PV3D(u*j, (v*i) + 2, 6, 1);
-			normal[indiceVertice] = new PV3D();
-			//std::cout << indiceVertice << std::endl;
+			normal[indiceVertice] = new PV3D(u*j, (v*i) + 2, 6, 0);
+			normal[indiceVertice]->normaliza();
 
 			if(i > 0 && j > 0){
 				int indiceCara = ((i-1) * (pl-1) + (j-1)) + 35;
@@ -105,7 +103,6 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 				vns[2] = new VerticeNormal(indiceVertice-pl-1, indiceVertice-pl-1);
 				vns[3] = new VerticeNormal(indiceVertice-1, indiceVertice-1);
 				cara[indiceCara] = new Cara(4, vns);
-				//std::cout << indiceCara << std::endl;
 			}
 		}
 	}
@@ -116,10 +113,8 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 		for(int j = 0; j < pa; j++){ //ancho
 			int indiceVertice = (i * pa + j) + 72;
 			vertice[indiceVertice] = new PV3D(0, (u * i) + 2, (v * j), 1);
-			normal[indiceVertice] = new PV3D();
-			//std::cout << 0 << std::endl;
-			//std::cout << u*i+2 << std::endl;
-			//std::cout << v*j << std::endl;
+			normal[indiceVertice] = new PV3D(0, (u * i) + 2, (v * j), 0);
+			normal[indiceVertice]->normaliza();
 
 			if(i > 0 && j > 0){
 				int indiceCara = ((i-1) * (pa-1) + (j-1)) + 40;
@@ -129,7 +124,6 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 				vns[2] = new VerticeNormal(indiceVertice-pa-1, indiceVertice-pa-1);
 				vns[3] = new VerticeNormal(indiceVertice-1, indiceVertice-1);
 				cara[indiceCara] = new Cara(4, vns);
-				//std::cout << indiceCara << std::endl;
 			}
 		}
 	}
@@ -139,8 +133,8 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 		for(int j = 0; j < pa; j++){ //ancho
 			int indiceVertice = (i * pa + j) + 80;
 			vertice[indiceVertice] = new PV3D(10, (u * i) + 2, (v * j), 1);
-			normal[indiceVertice] = new PV3D();
-			//std::cout << indiceVertice << std::endl;
+			normal[indiceVertice] = new PV3D(10, (u * i) + 2, (v * j), 0);
+			normal[indiceVertice]->normaliza();
 
 			if(i > 0 && j > 0){
 				int indiceCara = ((i-1) * (pa-1) + (j-1)) + 43;
@@ -150,7 +144,6 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 				vns[2] = new VerticeNormal(indiceVertice-pa-1, indiceVertice-pa-1);
 				vns[3] = new VerticeNormal(indiceVertice-1, indiceVertice-1);
 				cara[indiceCara] = new Cara(4, vns);
-				//std::cout << indiceCara << std::endl;
 			}
 		}
 	}
