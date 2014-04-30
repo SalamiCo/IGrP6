@@ -15,10 +15,10 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 	this->partesLargo = pl;
 	this->partesAlto = pal;
 
-	setNumVertices((pl*pa*2) + (pa*pal) + (pl*pal*2)); //cara arriba + cara abajo + caras laterales
+	setNumVertices((pl*pa*2) + (pa*pal*2) + (pl*pal*2)); //cara arriba + cara abajo + caras laterales
 	std::cout << numVertices << std::endl;
 	setNumNormales(numVertices);
-	setNumCaras(((pl-1)*(pa-1)*2) + ((pa-1)*(pal-1)) + ((pl-1)*(pal-1)*2));
+	setNumCaras(((pl-1)*(pa-1)*2) + ((pa-1)*(pal-1)*2) + ((pl-1)*(pal-1)*2));
 	std::cout << numCaras << std::endl;
 
 	vertice = new PV3D* [numVertices];
@@ -114,17 +114,19 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 	u = al / pal, v = a / pa;
 	for(int i = 0; i < pal; i++){ //alto
 		for(int j = 0; j < pa; j++){ //ancho
-			int indiceVertice = (i * pl + j) + 72;
+			int indiceVertice = (i * pa + j) + 72;
 			vertice[indiceVertice] = new PV3D(0, (u * i) + 2, (v * j), 1);
 			normal[indiceVertice] = new PV3D();
-			//std::cout << indiceVertice << std::endl;
+			//std::cout << 0 << std::endl;
+			//std::cout << u*i+2 << std::endl;
+			//std::cout << v*j << std::endl;
 
 			if(i > 0 && j > 0){
-				int indiceCara = ((i-1) * (pl-1) + (j-1)) + 40;
+				int indiceCara = ((i-1) * (pa-1) + (j-1)) + 40;
 				VerticeNormal** vns = new VerticeNormal*[4];
 				vns[0] = new VerticeNormal(indiceVertice, indiceVertice);
-				vns[1] = new VerticeNormal(indiceVertice-pl, indiceVertice-pl);
-				vns[2] = new VerticeNormal(indiceVertice-pl-1, indiceVertice-pl-1);
+				vns[1] = new VerticeNormal(indiceVertice-pa, indiceVertice-pa);
+				vns[2] = new VerticeNormal(indiceVertice-pa-1, indiceVertice-pa-1);
 				vns[3] = new VerticeNormal(indiceVertice-1, indiceVertice-1);
 				cara[indiceCara] = new Cara(4, vns);
 				//std::cout << indiceCara << std::endl;
@@ -135,17 +137,17 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 	//Cara lateral derecha
 	for(int i = 0; i < pal; i++){ //alto
 		for(int j = 0; j < pa; j++){ //ancho
-			int indiceVertice = (i * pl + j) + 80;
+			int indiceVertice = (i * pa + j) + 80;
 			vertice[indiceVertice] = new PV3D(10, (u * i) + 2, (v * j), 1);
 			normal[indiceVertice] = new PV3D();
 			//std::cout << indiceVertice << std::endl;
 
 			if(i > 0 && j > 0){
-				int indiceCara = ((i-1) * (pl-1) + (j-1)) + 43;
+				int indiceCara = ((i-1) * (pa-1) + (j-1)) + 43;
 				VerticeNormal** vns = new VerticeNormal*[4];
 				vns[0] = new VerticeNormal(indiceVertice, indiceVertice);
-				vns[1] = new VerticeNormal(indiceVertice-pl, indiceVertice-pl);
-				vns[2] = new VerticeNormal(indiceVertice-pl-1, indiceVertice-pl-1);
+				vns[1] = new VerticeNormal(indiceVertice-pa, indiceVertice-pa);
+				vns[2] = new VerticeNormal(indiceVertice-pa-1, indiceVertice-pa-1);
 				vns[3] = new VerticeNormal(indiceVertice-1, indiceVertice-1);
 				cara[indiceCara] = new Cara(4, vns);
 				//std::cout << indiceCara << std::endl;
