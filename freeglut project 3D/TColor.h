@@ -1,20 +1,28 @@
 #pragma once
+
+#include <Windows.h>
+#include <gl/GL.h>
+#include <gl/GLU.h>
+
+#include <GL/freeglut.h>
+//#include <GL/glut.h>
+
 class TColor
 {
 private:
-	float red, green, blue;
+	GLfloat red, green, blue;
 
 public:
 	TColor(void);
-	TColor(float r, float g, float b);
+	TColor(GLfloat r, GLfloat g, GLfloat b);
 	~TColor(void);
 
-	float getRed(){ return this->red; }
-	float getGreen(){ return this->green; }
-	float getBlue(){ return this->blue; }
+	GLfloat getRed(){ return this->red; }
+	GLfloat getGreen(){ return this->green; }
+	GLfloat getBlue(){ return this->blue; }
 
-	void setRed(float r){ this->red = r; }
-	void setGreen(float g){ this->green = g; }
-	void setBlue(float b){ this->blue = b; }
+	void setRed(GLfloat r){ this->red = r; }
+	void setGreen(GLfloat g){ this->green = g; }
+	void setBlue(GLfloat b){ this->blue = b; }
 };
 

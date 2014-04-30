@@ -133,7 +133,6 @@ void display(void) {
 
 	glPopMatrix();*/
 	//tablero->dibuja();
-
 	objCompuesto->dibuja();
 
 	

@@ -9,6 +9,7 @@
 #include "Cara.h"
 #include "Matr.h"
 #include "Objeto3D.h"
+#include "TColor.h"
 
 #include <windows.h>
 
