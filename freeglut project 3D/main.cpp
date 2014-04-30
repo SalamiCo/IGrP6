@@ -210,21 +210,6 @@ void display(void) {
 	glEnd();
 
 	//Our code
-
-	/*glPushMatrix();
-	glMatrixMode(GL_MODELVIEW);
-
-	glRotated(angleX, 1,0,0);
-	glRotated(angleY, 0,1,0);
-	glRotated(angleZ, 0,0,1);
-
-
-	glColor3f(1.0, 0.0, 0.0);
-	//coche.drawCoche(4);
-	glutSolidCube(4);
-
-	glPopMatrix();*/
-	//tablero->dibuja();
 	objCompuesto->dibuja();
 
 	
@@ -420,6 +405,27 @@ void key(unsigned char key, int x, int y){
 				glOrtho(xLeft, xRight, yBot, yTop, N, F);
 				glMultMatrixf(m);
 			}
+			break;
+
+		case 'y': //Trasladar escena
+			objCompuesto->traslacionEscena(1, 0, 0);
+			break;
+		case 'h':
+			objCompuesto->traslacionEscena(-1, 0, 0);
+			break;
+
+		case 'g': //Escalacion escena
+			objCompuesto->escalacionEscena(1, 2, 1);
+			break;
+		case 'b':
+			objCompuesto->escalacionEscena(1, 0.5, 1);
+			break;
+
+		case '8':
+			objCompuesto->rotacionEscena(2,0,1,0);
+			break;
+		case '9':
+			objCompuesto->rotacionEscena(-2,0,1,0);
 			break;
 
 		default:

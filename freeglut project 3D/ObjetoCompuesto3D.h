@@ -26,8 +26,8 @@ public:
 
 	virtual void dibuja();
 
-	void traslacionEscena();
-	void escalacionEscena();
-	void rotacionEscena();
+	void traslacionEscena(GLfloat x, GLfloat y, GLfloat z);
+	void escalacionEscena(GLfloat x, GLfloat y, GLfloat z);
+	void rotacionEscena(GLfloat angle, GLfloat x, GLfloat y, GLfloat z);
 };
 
