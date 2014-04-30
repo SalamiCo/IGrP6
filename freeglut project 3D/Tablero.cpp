@@ -31,7 +31,7 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 		for(int j = 0; j < pl; j++){ //largo
 			int indiceVertice = i * pl + j;
 			vertice[indiceVertice] = new PV3D(u*j, al, v*(pa-i-1), 1);
-			normal[indiceVertice] = new PV3D(u*j, al, v*(pa-i-1), 0);
+			normal[indiceVertice] = new PV3D(0, 1, 0, 0);
 			normal[indiceVertice]->normaliza();
 
 			if(i > 0 && j > 0){
@@ -51,7 +51,7 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 		for(int j = 0; j < pl; j++){ //largo
 			int indiceVertice = (i * pl + j) + 24;
 			vertice[indiceVertice] = new PV3D(u*j, al - 2, v*(pa-i-1), 1);
-			normal[indiceVertice] = new PV3D(u*j, al - 2, v*(pa-i-1), 0);
+			normal[indiceVertice] = new PV3D(0, -1, 0, 0);
 			normal[indiceVertice]->normaliza();
 
 			if(i > 0 && j > 0){
@@ -72,7 +72,7 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 		for(int j = 0; j < pl; j++){ //largo
 			int indiceVertice = (i * pl + j) + 48;
 			vertice[indiceVertice] = new PV3D(u*j, (v*i) + 2, 0, 1);
-			normal[indiceVertice] = new PV3D(u*j, (v*i) + 2, 0, 0);
+			normal[indiceVertice] = new PV3D(0, 0, -1, 0);
 			normal[indiceVertice]->normaliza();
 
 			if(i > 0 && j > 0){
@@ -92,7 +92,7 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 		for(int j = 0; j < pl; j++){ //largo
 			int indiceVertice = (i * pl + j) + 60;
 			vertice[indiceVertice] = new PV3D(u*j, (v*i) + 2, 6, 1);
-			normal[indiceVertice] = new PV3D(u*j, (v*i) + 2, 6, 0);
+			normal[indiceVertice] = new PV3D(0, 0, 1, 0);
 			normal[indiceVertice]->normaliza();
 
 			if(i > 0 && j > 0){
@@ -113,7 +113,7 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 		for(int j = 0; j < pa; j++){ //ancho
 			int indiceVertice = (i * pa + j) + 72;
 			vertice[indiceVertice] = new PV3D(0, (u * i) + 2, (v * j), 1);
-			normal[indiceVertice] = new PV3D(0, (u * i) + 2, (v * j), 0);
+			normal[indiceVertice] = new PV3D(-1, 0, 0, 0);
 			normal[indiceVertice]->normaliza();
 
 			if(i > 0 && j > 0){
@@ -133,7 +133,7 @@ Tablero::Tablero(int a, int l, int al, int pa, int pl, int pal, TAfin* ta):Malla
 		for(int j = 0; j < pa; j++){ //ancho
 			int indiceVertice = (i * pa + j) + 80;
 			vertice[indiceVertice] = new PV3D(10, (u * i) + 2, (v * j), 1);
-			normal[indiceVertice] = new PV3D(10, (u * i) + 2, (v * j), 0);
+			normal[indiceVertice] = new PV3D(1, 0, 0, 0);
 			normal[indiceVertice]->normaliza();
 
 			if(i > 0 && j > 0){

@@ -43,8 +43,9 @@ void Malla::dibuja(bool rellena, bool normales){
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		glBegin(GL_POLYGON);
+
 		//Color marron
-		TColor colorMarron = TColor((GLfloat)0.82, (GLfloat)0.41, (GLfloat)0.12);
+		TColor colorMarron = TColor((GLfloat)0.55, (GLfloat)0.27, (GLfloat)0.07);
 		glColor3f(colorMarron.getRed(), colorMarron.getGreen(), colorMarron.getBlue());
 
 		for(int j = 0; j < cara[i]->getNumVertices(); j++){
