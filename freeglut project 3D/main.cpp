@@ -23,6 +23,7 @@ using namespace std;
 #include "TCilindro.h"
 #include "TEsfera.h"
 #include "TCubo.h"
+#include "BolasCompuesto.h"
 
 // Freeglut parameters
 // Flag telling us to keep processing events
@@ -80,8 +81,10 @@ void buildScene() {
 	Objeto3D* pata4 = new TCilindro(0.5, 0.5, 2, 10, 4, 9, 0, 5, 270, 1, 0, 0, colorMarron);
 
 	//Bolas
+	Objeto3D* bolas = new BolasCompuesto();
+
 	TColor colorBlanco = TColor((GLfloat)1.0, (GLfloat)1.0, (GLfloat)1.0);
-	Objeto3D* bolaBlanca = new TEsfera(0.2, 30, 30, 2, 4.2, 3, colorBlanco);
+	/*Objeto3D* bolaBlanca = new TEsfera(0.2, 30, 30, 2, 4.2, 3, colorBlanco);
 
 	TColor colorNegro = TColor((GLfloat)0.0, (GLfloat)0.0, (GLfloat)0.0);
 	Objeto3D* bolaNegra = new TEsfera(0.2, 30, 30, 7, 4.2, 3, colorNegro);
@@ -100,7 +103,7 @@ void buildScene() {
 	Objeto3D* bola12 = new TEsfera(0.2, 30, 30, 7.8, 4.2, 3.4, colorRojo);
 	Objeto3D* bola13 = new TEsfera(0.2, 30, 30, 7.8, 4.2, 3, colorRojo);
 	Objeto3D* bola14 = new TEsfera(0.2, 30, 30, 7.8, 4.2, 2.6, colorRojo);
-	Objeto3D* bola15 = new TEsfera(0.2, 30, 30, 7.8, 4.2, 2.2, colorRojo);
+	Objeto3D* bola15 = new TEsfera(0.2, 30, 30, 7.8, 4.2, 2.2, colorRojo);*/
 
 	//Taco
 	TColor colorGoldenRod = TColor((GLfloat)0.85, (GLfloat)0.65, (GLfloat)0.13);
@@ -125,7 +128,8 @@ void buildScene() {
 	objCompuesto->addHijo(pata3);
 	objCompuesto->addHijo(pata4);
 
-	objCompuesto->addHijo(bolaBlanca);
+	objCompuesto->addHijo(bolas);
+	/*objCompuesto->addHijo(bolaBlanca);
 	objCompuesto->addHijo(bolaNegra);
 	objCompuesto->addHijo(bola1);
 	objCompuesto->addHijo(bola2);
@@ -140,7 +144,7 @@ void buildScene() {
 	objCompuesto->addHijo(bola12);
 	objCompuesto->addHijo(bola13);
 	objCompuesto->addHijo(bola14);
-	objCompuesto->addHijo(bola15);
+	objCompuesto->addHijo(bola15);*/
 
 	objCompuesto->addHijo(taco);
 	objCompuesto->addHijo(mango);

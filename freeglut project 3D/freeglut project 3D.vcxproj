@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BolasCompuesto.cpp" />
     <ClCompile Include="Cara.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Malla.cpp" />
@@ -82,6 +83,7 @@
     <ClCompile Include="VerticeNormal.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BolasCompuesto.h" />
     <ClInclude Include="Cara.h" />
     <ClInclude Include="Malla.h" />
     <ClInclude Include="Matr.h" />

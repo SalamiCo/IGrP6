@@ -63,6 +63,9 @@
     <ClCompile Include="TCubo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BolasCompuesto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sources\PV3D.h">
@@ -108,6 +111,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TCubo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BolasCompuesto.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
