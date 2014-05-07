@@ -5,11 +5,8 @@
 
 BolasCompuesto::BolasCompuesto(void){
 	TAfin* ta = new TAfin();
-	ta->escalacion(1, 1, 1);
+	ta->traslacion(1.4, 0, 0);
 	this->tAfin = ta;
-
-	TColor colorBlanco = TColor((GLfloat)1.0, (GLfloat)1.0, (GLfloat)1.0);
-	Objeto3D* bolaBlanca = new TEsfera(0.2, 30, 30, 2, 4.2, 3, colorBlanco);
 
 	TColor colorNegro = TColor((GLfloat)0.0, (GLfloat)0.0, (GLfloat)0.0);
 	Objeto3D* bolaNegra = new TEsfera(0.2, 30, 30, 7, 4.2, 3, colorNegro);
@@ -30,7 +27,6 @@ BolasCompuesto::BolasCompuesto(void){
 	Objeto3D* bola14 = new TEsfera(0.2, 30, 30, 7.8, 4.2, 2.6, colorRojo);
 	Objeto3D* bola15 = new TEsfera(0.2, 30, 30, 7.8, 4.2, 2.2, colorRojo);
 
-	addHijo(bolaBlanca);
 	addHijo(bolaNegra);
 	addHijo(bola1);
 	addHijo(bola2);

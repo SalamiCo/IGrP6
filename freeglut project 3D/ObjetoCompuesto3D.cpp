@@ -5,7 +5,7 @@
 
 ObjetoCompuesto3D::ObjetoCompuesto3D(void)
 {
-	this->hijos = new Objeto3D*[15]; //15 por defecto
+	this->hijos = new Objeto3D*[30]; //30 por defecto
 	this->numHijos = 0;
 }
 

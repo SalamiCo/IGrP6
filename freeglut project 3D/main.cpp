@@ -16,14 +16,8 @@ using namespace std;
 
 #include "Camara.h"
 #include "PV3D.h"
-//#include "Objeto3D.h"
-#include "Tablero.h"
 #include "ObjetoCompuesto3D.h"
-#include "TAfin.h"
-#include "TCilindro.h"
-#include "TEsfera.h"
-#include "TCubo.h"
-#include "BolasCompuesto.h"
+#include "MesaBillar.h"
 
 // Freeglut parameters
 // Flag telling us to keep processing events
@@ -56,101 +50,11 @@ GLdouble angleGiraZ = 0.0;
 
 PV3D d = PV3D(0.1, 0.1, 1, 0); //Para proyección oblicua
 
-ObjetoCompuesto3D* objCompuesto;
-Objeto3D* tablero;
+ObjetoCompuesto3D* escena;
 
 void buildScene() {
-	objCompuesto = new ObjetoCompuesto3D();
-
-	//Tablero
-	TAfin* afinTablero = new TAfin();
-	afinTablero->traslacion(0,0,0);
-	tablero = new Tablero(8,12,4,4,6,2, afinTablero);
-
-	//Bordes
-	TColor colorMarron = TColor((GLfloat)0.55, (GLfloat)0.27, (GLfloat)0.07);
-	Objeto3D* borde1 = new TCubo(1, 5, 4, 0.25, 10, 0.5, 0.5, colorMarron, 1);
-	Objeto3D* borde2 = new TCubo(1, 0.25, 4, 3, 0.5, 0.5, 6, colorMarron, 1);
-	Objeto3D* borde3 = new TCubo(1, 5, 4, 5.75, 10, 0.5, 0.5, colorMarron, 1);
-	Objeto3D* borde4 = new TCubo(1, 9.75, 4, 3, 0.5, 0.5, 6, colorMarron, 1);
-
-	//Patas
-	Objeto3D* pata1 = new TCilindro(0.5, 0.5, 2, 10, 4, 1, 0, 1, 270, 1, 0, 0, colorMarron);
-	Objeto3D* pata2 = new TCilindro(0.5, 0.5, 2, 10, 4, 9, 0, 1, 270, 1, 0, 0, colorMarron);
-	Objeto3D* pata3 = new TCilindro(0.5, 0.5, 2, 10, 4, 1, 0, 5, 270, 1, 0, 0, colorMarron);
-	Objeto3D* pata4 = new TCilindro(0.5, 0.5, 2, 10, 4, 9, 0, 5, 270, 1, 0, 0, colorMarron);
-
-	//Bolas
-	Objeto3D* bolas = new BolasCompuesto();
-
-	TColor colorBlanco = TColor((GLfloat)1.0, (GLfloat)1.0, (GLfloat)1.0);
-	/*Objeto3D* bolaBlanca = new TEsfera(0.2, 30, 30, 2, 4.2, 3, colorBlanco);
-
-	TColor colorNegro = TColor((GLfloat)0.0, (GLfloat)0.0, (GLfloat)0.0);
-	Objeto3D* bolaNegra = new TEsfera(0.2, 30, 30, 7, 4.2, 3, colorNegro);
-
-	TColor colorRojo = TColor((GLfloat)1.0, (GLfloat)0.0, (GLfloat)0.0);
-	Objeto3D* bola1 = new TEsfera(0.2, 30, 30, 6.2, 4.2, 3, colorRojo);
-	Objeto3D* bola2 = new TEsfera(0.2, 30, 30, 6.6, 4.2, 3.2, colorRojo);
-	Objeto3D* bola3 = new TEsfera(0.2, 30, 30, 6.6, 4.2, 2.8, colorRojo);
-	Objeto3D* bola4 = new TEsfera(0.2, 30, 30, 7, 4.2, 3.4, colorRojo);
-	Objeto3D* bola5 = new TEsfera(0.2, 30, 30, 7, 4.2, 2.6, colorRojo);
-	Objeto3D* bola6 = new TEsfera(0.2, 30, 30, 7.4, 4.2, 3.6, colorRojo);
-	Objeto3D* bola7 = new TEsfera(0.2, 30, 30, 7.4, 4.2, 3.2, colorRojo);
-	Objeto3D* bola9 = new TEsfera(0.2, 30, 30, 7.4, 4.2, 2.8, colorRojo);
-	Objeto3D* bola10 = new TEsfera(0.2, 30, 30, 7.4, 4.2, 2.4, colorRojo);
-	Objeto3D* bola11 = new TEsfera(0.2, 30, 30, 7.8, 4.2, 3.8, colorRojo);
-	Objeto3D* bola12 = new TEsfera(0.2, 30, 30, 7.8, 4.2, 3.4, colorRojo);
-	Objeto3D* bola13 = new TEsfera(0.2, 30, 30, 7.8, 4.2, 3, colorRojo);
-	Objeto3D* bola14 = new TEsfera(0.2, 30, 30, 7.8, 4.2, 2.6, colorRojo);
-	Objeto3D* bola15 = new TEsfera(0.2, 30, 30, 7.8, 4.2, 2.2, colorRojo);*/
-
-	//Taco
-	TColor colorGoldenRod = TColor((GLfloat)0.85, (GLfloat)0.65, (GLfloat)0.13);
-	TColor colorChocolate = TColor((GLfloat)0.82, (GLfloat)0.41, (GLfloat)0.12);
-	Objeto3D* taco = new TCilindro(0.1, 0.1, 4, 10, 4, 1, 4.4, 3, 270, 0, 1, 0, colorGoldenRod);
-	Objeto3D* mango = new TCilindro(0.1, 0.1, 3, 10, 4, -3, 4.4, 3, 270, 0, 1, 0, colorChocolate);
-	Objeto3D* punta = new TCilindro(0.1, 0.1, 0.5, 10, 4, 1.5, 4.4, 3, 270, 0, 1, 0, colorBlanco);
-
-	//Tiza
-	Objeto3D* tiza = new TCubo(0.1, 0.3, 4.4, 5.7, 1, 1, 1, colorBlanco, 0);
-
-	//Añadir objetos
-	objCompuesto->addHijo(tablero);
-
-	objCompuesto->addHijo(borde1);
-	objCompuesto->addHijo(borde2);
-	objCompuesto->addHijo(borde3);
-	objCompuesto->addHijo(borde4);
-
-	objCompuesto->addHijo(pata1);
-	objCompuesto->addHijo(pata2);
-	objCompuesto->addHijo(pata3);
-	objCompuesto->addHijo(pata4);
-
-	objCompuesto->addHijo(bolas);
-	/*objCompuesto->addHijo(bolaBlanca);
-	objCompuesto->addHijo(bolaNegra);
-	objCompuesto->addHijo(bola1);
-	objCompuesto->addHijo(bola2);
-	objCompuesto->addHijo(bola3);
-	objCompuesto->addHijo(bola4);
-	objCompuesto->addHijo(bola5);
-	objCompuesto->addHijo(bola6);
-	objCompuesto->addHijo(bola7);
-	objCompuesto->addHijo(bola9);
-	objCompuesto->addHijo(bola10);
-	objCompuesto->addHijo(bola11);
-	objCompuesto->addHijo(bola12);
-	objCompuesto->addHijo(bola13);
-	objCompuesto->addHijo(bola14);
-	objCompuesto->addHijo(bola15);*/
-
-	objCompuesto->addHijo(taco);
-	objCompuesto->addHijo(mango);
-	objCompuesto->addHijo(punta);
-
-	objCompuesto->addHijo(tiza);
+	//escena = new ObjetoCompuesto3D();
+	escena = new MesaBillar();
 
 	// Camera set up
 	camera = Camara(PV3D(eyeX, eyeY, eyeZ, 1), PV3D(lookX, lookY, lookZ, 1), PV3D(upX, upY, upZ, 0));
@@ -204,7 +108,7 @@ void display(void) {
 	glEnd();
 
 	//Our code
-	objCompuesto->dibuja();
+	escena->dibuja();
 
 	
 	glFlush();
@@ -402,24 +306,24 @@ void key(unsigned char key, int x, int y){
 			break;
 
 		case 'y': //Trasladar escena
-			objCompuesto->traslacionEscena(1, 0, 0);
+			escena->traslacionEscena(1, 0, 0);
 			break;
 		case 'h':
-			objCompuesto->traslacionEscena(-1, 0, 0);
+			escena->traslacionEscena(-1, 0, 0);
 			break;
 
 		case 'g': //Escalacion escena
-			objCompuesto->escalacionEscena(1, 2, 1);
+			escena->escalacionEscena(1, 2, 1);
 			break;
 		case 'b':
-			objCompuesto->escalacionEscena(1, 0.5, 1);
+			escena->escalacionEscena(1, 0.5, 1);
 			break;
 
 		case '8':
-			objCompuesto->rotacionEscena(2,0,1,0);
+			escena->rotacionEscena(2,0,1,0);
 			break;
 		case '9':
-			objCompuesto->rotacionEscena(-2,0,1,0);
+			escena->rotacionEscena(-2,0,1,0);
 			break;
 
 		default:
